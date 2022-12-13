@@ -2,7 +2,7 @@
 
 @section('content')
 
-{!! Form::open() !!}
+{!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
 
@@ -19,6 +19,7 @@
 {{ Form::text('password-confirm',null,['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
+
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
 

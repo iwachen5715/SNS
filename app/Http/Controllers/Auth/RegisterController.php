@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'mail' => $data['mail'],
             'password' => bcrypt($data['password']),
+
         ]);
     }
 
@@ -80,6 +81,9 @@ class RegisterController extends Controller
             $data = $request->input();
 
             $this->create($data);
+            $username = $this->create($data);
+$user = $request->get('username');
+return redirect('added')->with('username', $user);
             return redirect('added');
         }
         return view('auth.register');
@@ -88,4 +92,6 @@ class RegisterController extends Controller
     public function added(){
         return view('auth.added');
     }
+
+
 }
