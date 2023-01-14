@@ -24,10 +24,16 @@
         <div id = "head">
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
-                <div id="">
+                <div id="atlas">
                     <p>〇〇さん<img src="images/arrow.png"></p>
                 <div>
-                <ul>
+             <!--アコーディオンメニュ-->
+            </div>
+            <div>
+                <button type="button" class="menu-btn">
+                <span class="menu-btn"></span>
+
+                <ul class="menu">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
@@ -58,7 +64,8 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
