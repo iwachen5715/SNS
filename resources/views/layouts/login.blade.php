@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <!--スマホ,タブレット対応-->
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewprt" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
     <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
     <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
@@ -22,23 +22,21 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="atlas">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
+        <h1><a href="/top"><img class="topIcon" src="images/atlas.png"></a></h1>
+        <div id = "middle">
+        <p class="users">admin  さん<img src="images/arrow.png"></p>
              <!--アコーディオンメニュ-->
             </div>
-            <div>
-                <button type="button" class="menu-btn">
-                <span class="menu-btn"></span>
+                <button  type="button" class="menu-btn">
+                <span class="inn"></span>
+                </button>
 
                 <ul class="menu">
                     <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
+                    <li><a  href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
-            </div>
+
         </div>
     </header>
     <div id="row">
@@ -52,7 +50,7 @@
                 <p>フォロー数</p>
                 <p>名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn red"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>名</p>
