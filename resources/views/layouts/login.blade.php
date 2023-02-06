@@ -22,21 +22,23 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img class="topIcon" src="images/atlas.png"></a></h1>
-        <div id = "middle">
-        <p class="users">admin  さん<img src="images/arrow.png"></p>
-             <!--アコーディオンメニュ-->
+            <h1><a href="/top"><img class="topIcon" src="images/atlas.png"></a></h1>
+            <div id = "middle">
+                <p class="users menu-btn">admin  さん <span class="accordion-title"></span>
+                <div id = "item">
+                    <img class="Item" src="icon1.png"></p>
+                </div>
             </div>
-                <button  type="button" class="menu-btn">
-                <span class="inn"></span>
-                </button>
+             <!--アコーディオンメニュ-->
+            <ul class="menu">
 
-                <ul class="menu">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a  href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+            <li><a class="home" href="/top">HOME</a></li>
+            <li>
+                 <a class="icon" href="/profile">プロフィール編集</a>
 
+                </li>
+            <li><a class="center" href="/logout">ログアウト</a></li>
+            </ul>
         </div>
     </header>
     <div id="row">

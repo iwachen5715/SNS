@@ -32,6 +32,13 @@ header {
 
 #middle {
     display: flex;
+    justify-content: space-between;
+}
+
+#item {
+    display: flex;
+    justify-content:
+        space-between;
 }
 
 /* アコーディオンメニュー */
@@ -63,15 +70,32 @@ header {
 
 }
 
+a:hover {
+    color: darkblue;
+}
+
 .menu {
     position: absolute;
-    top: 48px;
-    width: 100%;
+    top: 51px;
+    width: 20%;
+    height: 80px;
     background-color: #fff;
     opacity: 0;
     transition: .3s ease-in-out;
     pointer-events: none;
     transform: translateY(-30px);
+    padding: 10px 10px 20px;
+    right: 0px;
+    border: 1px solid;
+    border-color: darkblue;
+    margin-left: 70px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    padding: 32px;
+
+
+
 
 }
 
@@ -79,14 +103,7 @@ header {
     opacity: 1;
     transform: translateY(0);
     margin-left: 58px;
-}
 
-
-.menu {
-    width: 100%;
-    padding: 10px 10px 20px;
-    left: 490px;
-    top: 48px;
 }
 
 
@@ -119,8 +136,58 @@ header {
 .users {
     margin-left: 450px;
     color: #fff;
-    font-size: 12px;
-    font-weight: 15px;
+    font-size: 14px;
+    font-weight: 20px;
     text-align: right;
-    padding: 15px;
+    padding: 21px;
+    width: 90px;
+
+
+
+}
+
+.Item {
+    margin-left: 80px;
+
+}
+
+.icon {
+    display: inline-block;
+    background-color: darkblue;
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+    padding: 10px;
+
+}
+
+.home {
+    padding: 20px;
+}
+
+.icon:hover {
+    background-color: red;
+}
+
+.accordion-title:after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 3%;
+    transition: all 0.2s ease-in-out;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px #fff;
+    border-right: solid 2px #fff;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+
+}
+
+.accordion-title.open:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 3.5%;
+
 }
