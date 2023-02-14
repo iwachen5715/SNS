@@ -35,7 +35,6 @@
             <li><a class="home" href="/top">HOME</a></li>
             <li>
                  <a class="icon" href="/profile">プロフィール編集</a>
-
                 </li>
             <li><a class="center" href="/logout">ログアウト</a></li>
             </ul>

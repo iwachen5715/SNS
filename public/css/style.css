@@ -77,32 +77,23 @@ a:hover {
 .menu {
     position: absolute;
     top: 51px;
-    width: 20%;
-    height: 80px;
     background-color: #fff;
     opacity: 0;
     transition: .3s ease-in-out;
     pointer-events: none;
     transform: translateY(-30px);
-    padding: 10px 10px 20px;
     right: 0px;
     border: 1px solid;
     border-color: darkblue;
-    margin-left: 70px;
     text-align: center;
     display: flex;
     flex-flow: column;
-    padding: 32px;
-
-
-
-
 }
 
 .menu.is-open {
     opacity: 1;
     transform: translateY(0);
-    margin-left: 58px;
+
 
 }
 
@@ -157,12 +148,19 @@ a:hover {
     color: #fff;
     text-align: center;
     line-height: 25px;
-    padding: 10px;
+    padding: 22px 40px;
+}
 
+.center {
+    display: inline-block;
+    padding: 22px 40px;
 }
 
 .home {
-    padding: 20px;
+    display: inline-block;
+    padding: 22px 40px;
+
+
 }
 
 .icon:hover {
@@ -172,7 +170,7 @@ a:hover {
 .accordion-title:after {
     content: "";
     position: absolute;
-    right: 40px;
+    right: 70px;
     top: 3%;
     transition: all 0.2s ease-in-out;
     display: block;
