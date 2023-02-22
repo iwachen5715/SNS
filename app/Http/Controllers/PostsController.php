@@ -8,8 +8,10 @@ use DB;
 class PostsController extends Controller
 {
     //
-    public function index(){
-        return view('posts.index');
+    public function index()
+    {
+        $list = Post::get();
+        return view('posts.index',['list'=>$list]);
     }
     //下記つぶやき機能に接続するメソッドを新規追加
     public function create(Request $request)

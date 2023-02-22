@@ -46,7 +46,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>admin さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>名</p>
@@ -63,7 +63,6 @@
     </div>
     <footer>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('/js/script.js') }}"></script>
 </body>
