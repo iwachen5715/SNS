@@ -10,15 +10,15 @@ class PostsController extends Controller
     //
     public function index()
     {
-        $list = Post::get();
-        return view('posts.index',['list'=>$list]);
+        $list = Post::get();//Postテーブルの情報を参照
+        return view('posts.index',['lists'=>$list]);
     }
     //下記つぶやき機能に接続するメソッドを新規追加
     public function create(Request $request)
     {
         $post = $request->input('newPost');
         $user_id=Auth::id();//誰の呟きかわかるようにユーザーIDが必要
-        Post::create([
+        Post::create([//Postテーブルを参照
             'user_id'=>$user_id,
             'post' => $post
     ]);

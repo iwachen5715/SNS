@@ -9,4 +9,11 @@
      </div>
      <button type="submit" class="btn btn-success pull-right"><img src="images/post.png"></button>
  {!! Form::close() !!}
+@foreach ($lists as $list)
+    <tr>
+        <td>{{ $list->user_id }}</td>
+        <td>{{ $list->post }}</td>
+        <td>{{ $list->created_at }}</td>
+    </tr>
+@endforeach
 @endsection
