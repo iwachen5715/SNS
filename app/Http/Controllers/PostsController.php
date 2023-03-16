@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use DB;
-use App\Models\User;
-use App\Models\Post;
+use App\User;
 class PostsController extends Controller
 {
     //
