@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function user() {
-        return $this->belongsTo("App\Models\User");
+    public function user() {//userはuserメソッドでindexbladeに矢印ボタンでusernameの関連づけをする。
+        return $this->belongsTo("App\User");
     }
     //
      protected $fillable = [//$fillableは書き換えの意味

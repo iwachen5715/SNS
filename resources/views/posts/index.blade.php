@@ -11,6 +11,7 @@
  {!! Form::close() !!}
 @foreach ($lists as $list)
     <tr>
+        <td>{{ $list->user->username }}</td>
         <td>{{ $list->user_id }}</td>
         <td>{{ $list->post }}</td>
         <td>{{ $list->created_at }}</td>
