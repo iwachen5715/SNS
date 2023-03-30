@@ -132,9 +132,6 @@ a:hover {
     text-align: right;
     padding: 21px;
     width: 90px;
-
-
-
 }
 
 .Item {
@@ -188,4 +185,41 @@ a:hover {
     transform: rotate(-45deg);
     top: 3.5%;
 
+}
+
+/* モーダルの中身 */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+/* 削除ボタンのタグ */
+.Trash {
+    height: 25px;
+    top: 10px;
 }

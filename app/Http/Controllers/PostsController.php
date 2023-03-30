@@ -31,5 +31,11 @@ class PostsController extends Controller
         //ポストテーブルに登録する記述
         return redirect('/top');
     }
+    //削除用メソッドの実装
+    public function delete($id)//つぶやきのIDが＄idに入る
+    {
+        Post::where('id', $id)->delete();
+        return redirect('/top');
+    }//idカラムにある＄IDを削除するための記述 記述したらリターンダイレクトでトップに戻る記述になる
 
 }
