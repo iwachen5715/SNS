@@ -41,6 +41,7 @@ Route::get('follower-list','FollowsController@followerList');
 
 //つぶやき登録のルーティング
 Route::post('post/create','PostsController@create');
-//つぶやく削除のルーティング
+//つぶやく削除のルーティング消したいIDをここに送る URLの中
 Route::get('/post/{id}/delete','PostsController@delete');
-//消したいIDをここに送る URLの中は
+//つぶやき編集のルーティング
+Route::get('post/{id}/update-form','PostsController@updateForm');

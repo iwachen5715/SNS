@@ -223,3 +223,15 @@ a:hover {
     height: 25px;
     top: 10px;
 }
+
+/* つぶやきの編集ボタンのCSS */
+.Update {
+    height: 25px;
+    top: 10px;
+}
+
+/* 投稿ボタン紙飛行機マークのCSS */
+.Upload {
+    height: 25px;
+    top: 10px;
+}

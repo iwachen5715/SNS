@@ -24,10 +24,6 @@ class PostsController extends Controller
             'user_id'=>$user_id,
             'post' => $post
     ]);
-    // DB::table('posts')->insert([
-    //     'user_id'=>$user_id,
-    //     'post' => $post
-    // ]);
         //ポストテーブルに登録する記述
         return redirect('/top');
     }
@@ -38,4 +34,10 @@ class PostsController extends Controller
         return redirect('/top');
     }//idカラムにある＄IDを削除するための記述 記述したらリターンダイレクトでトップに戻る記述になる
 
+    //編集用メソッドの実装
+    public function updateForm($id)
+    {
+        $post = Post::where('id', $id)->first();
+        return view('posts.updateForm', ['post'=>$post]);
+    }
 }

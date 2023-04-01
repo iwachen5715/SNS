@@ -7,7 +7,7 @@
      <div class="form-group">
          {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!}
      </div>
-     <button type="submit" class="btn btn-success pull-right"><img src="images/post.png"></button>
+     <button type="submit" class="btn btn-success pull-right"><img class="Upload" src="images/post.png"></button>
  {!! Form::close() !!}
 @foreach ($lists as $list)
     <tr>
@@ -15,7 +15,9 @@
         <td>{{ $list->user_id }}</td>
         <td>{{ $list->post }}</td>
         <td>{{ $list->created_at }}</td>
-        <td><a class="js-modal-open" href="" post="{{ $post-post }}" post_id="{{ $post->id }}"><img src="./images/edit.png" alt="編集" /></a></td>
+        <!-- 更新 -->
+        <td><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img class="Update" src="./images/edit.png" alt="編集" /></a></td>
+        <!-- 削除 -->
         <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete"onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img class="Trash" src="./images/trash.png" alt="削除" /></a></td>
          <!-- aタグによって別のページに移動する属性でhref属性でその方向性を記述している -->
     </tr>
