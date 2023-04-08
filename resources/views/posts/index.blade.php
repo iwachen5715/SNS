@@ -26,7 +26,7 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-           <form action="/top" method="post">
+           <form action="post/update" method="post">
                 <textarea name="Post" class="modal_post"></textarea><!-- 名前をつける-->
                 <input type="hidden" name="id" class="modal_id" value="">
                 <input type="submit" value="更新">

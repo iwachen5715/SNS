@@ -44,4 +44,4 @@ Route::post('post/create','PostsController@create');
 //つぶやく削除のルーティング消したいIDをここに送る URLの中
 Route::get('/post/{id}/delete','PostsController@delete');
 //つぶやき編集のルーティング
-Route::post('/top','PostsController@updateForm');
+Route::post('post/update','PostsController@updateForm');
