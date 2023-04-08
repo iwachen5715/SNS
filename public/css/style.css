@@ -232,6 +232,6 @@ a:hover {
 
 /* 投稿ボタン紙飛行機マークのCSS */
 .Upload {
-    height: 25px;
-    top: 10px;
+    height: 60px;
+    top: 60px;
 }

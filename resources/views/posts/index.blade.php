@@ -26,9 +26,9 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-           <form action="/post/update" method="post">
-                <textarea name="{{$list->id}}" class="modal_post"></textarea>
-                <input type="hidden" name="upPost" class="modal_id" value="">
+           <form action="/top" method="post">
+                <textarea name="Post" class="modal_post"></textarea><!-- 名前をつける-->
+                <input type="hidden" name="id" class="modal_id" value="">
                 <input type="submit" value="更新">
                 {{ csrf_field() }}
            </form>

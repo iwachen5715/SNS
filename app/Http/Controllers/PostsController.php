@@ -35,9 +35,17 @@ class PostsController extends Controller
     }//idカラムにある＄IDを削除するための記述 記述したらリターンダイレクトでトップに戻る記述になる
 
     //編集用メソッドの実装
-    public function updateForm($id)
+    public function updateForm(Request $request)
     {
-        $post = Post::where('id', $id)->first();
-        return view('posts.updateForm', ['post'=>$post]);
+    // updateの処理
+    // dd($request);
+    $id = $request->input('id');
+
+    $up_post = $request->input('Post');
+
+    Post::where('id',$id)->update(['post' => $up_post]);
+
+    return redirect('/top');
+
     }
 }
