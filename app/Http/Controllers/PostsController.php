@@ -40,6 +40,7 @@ class PostsController extends Controller
     // updateの処理
     // dd($request);
     $id = $request->input('id');
+    //↑↑$requestはHTTPリクエストオブジェクトを表し、input()メソッドを使用して、リクエストパラメーターから'id'という名前の値を取得し、変数$idに代入しています。
 
     $up_post = $request->input('Post');
 
