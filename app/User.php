@@ -9,6 +9,7 @@ use App\Post;
 
 class User extends Authenticatable
 {
+    //1対多のリレーション
     public function posts() {
         return $this->hasMany("App\Post");
     }
@@ -17,12 +18,12 @@ class User extends Authenticatable
     //フォロー機能
     public function following()
     {
-        return $this ->belongsToMany(User::class,'follows','followed_id','following_id');
+        return $this ->belongsToMany('App\User','follows','followed_id','following_id');
     }
     //フォロー解除
     public function followed()
     {
-        return $this->belongsToMany(User::class,'follows','follows','following_id','followed_id');
+        return $this->belongsToMany('App\User','follows','follows','following_id','followed_id');
     }
     //フォローする
     public function follow(Int $user_id)
