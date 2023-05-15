@@ -38,10 +38,13 @@ Route::get('/search','UsersController@search')->name('search');
 
 Route::get('follow-list','FollowsController@followList');
 Route::get('follower-list','FollowsController@followerList');
-
-//つぶやき登録のルーティング
+//フォローのルーティング
+Route::post('/users/{user}/follow', 'UsersController@follow')->name('follow');
+//フォロー解除のルーティング
+Route::post('/users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
+//つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');
-//つぶやく削除のルーティング消したいIDをここに送る URLの中
+//つぶやき削除のルーティング 消したいIDをここに送る URLの中
 Route::get('/post/{id}/delete','PostsController@delete');
 //つぶやき編集のルーティング
 Route::post('post/update','PostsController@updateForm');
