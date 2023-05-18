@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\User;
 class FollowsController extends Controller
 {
-    //
-    public function followList(){
-        return view('follows.followList');
-    }
-    public function followerList(){
-        return view('follows.followerList');
+    public function follow(Request $request, User $user)
+    {
+        $request->user()->follow($user);
+        return back();
     }
 
+    public function unfollow(Request $request, User $user)
+    {
+        $request->user()->unfollow($user);
+        return back();
+    }
 }

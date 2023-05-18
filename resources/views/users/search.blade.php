@@ -22,17 +22,19 @@
             {{ $User -> username }}
         </td>
         <td>
-            <form method="POST" action="{{ route('unfollow',$User->id) }}" >
-            @csrf
-                <button type="submit" class="btn btn-danger">フォロー解除する</button>
-        </form>
-            <form method="POST" action="{{ route('follow', $User->id)}}" >
-        @csrf
-            <button type="submit" class="btn btn-primary">フォローする</button>
-            </form>
 
-        </td>
-    </tr>
+          <form method="POST" action="{{ route('unfollow', $User->id) }}" >
+        @csrf
+          <button type="submit" class="btn btn-danger">フォロー解除する</button>
+       </form>
+
+          <form method="POST" action="{{ route('follow', $User->id)}}" >
+        @csrf
+          <button type="submit" class="btn btn-primary">フォローする</button>
+        </form>
+
+      </td>
+   </tr>
 </div>
 @endforeach
 

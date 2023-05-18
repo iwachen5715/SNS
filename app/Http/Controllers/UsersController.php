@@ -49,5 +49,6 @@ class UsersController extends Controller
     {
         $request->user()->unfollow($user);
         return back();
+
     }
 }

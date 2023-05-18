@@ -38,10 +38,10 @@ Route::get('/search','UsersController@search')->name('search');
 
 Route::get('follow-list','FollowsController@followList');
 Route::get('follower-list','FollowsController@followerList');
-//フォローのルーティング
-Route::post('/users/{user}/follow', 'UsersController@follow')->name('follow');
-//フォロー解除のルーティング
-Route::post('/users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
+// フォロー解除のルート
+Route::post('/users/{user}/unfollow', 'FollowsController@unfollow')->name('unfollow');
+// フォローのルート
+Route::post('/users/{user}/follow', 'FollowsController@follow')->name('follow');
 //つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');
 //つぶやき削除のルーティング 消したいIDをここに送る URLの中
