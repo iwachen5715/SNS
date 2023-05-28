@@ -135,7 +135,11 @@ a:hover {
 }
 
 .Item {
-    margin-left: 80px;
+    /* margin-left: 40px; */
+    margin: auto 23px;
+    top: 20px;
+    height: 37px;
+
 
 }
 

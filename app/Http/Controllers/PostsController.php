@@ -49,4 +49,11 @@ class PostsController extends Controller
     return redirect('/top');
 
     }
+
+    //投稿一覧の表示のメソッド
+    // public function index()
+    // {
+    // $posts = Post::all(); // 投稿一覧を取得する処理
+    // return view('posts.index', compact('posts'));
+    // }
 }

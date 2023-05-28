@@ -26,7 +26,7 @@
             <div id = "middle">
                 <p class="users menu-btn">admin  さん <span class="accordion-title"></span>
                 <div id = "item">
-                    <img class="Item" src="icon1.png"></p>
+                    <img class="Item" src="{{asset('/images/icon1.png') }}"></p>
                 </div>
             </div>
              <!--アコーディオンメニュ-->

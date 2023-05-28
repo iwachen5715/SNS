@@ -9,21 +9,22 @@ use App\Post;
 
 class User extends Authenticatable
 {
+    use Notifiable;
+
     //1対多のリレーション
     public function posts() {
         return $this->hasMany("App\Post");
     }
-    use Notifiable;
 
     //フォロー機能
     public function following()
     {
-        return $this ->belongsToMany('App\User','follows','followed_id','following_id');
+        return $this ->belongsToMany('App\User','follows','following_id','followed_id');
     }
     //フォロー解除
     public function followed()
     {
-        return $this->belongsToMany('App\User','follows','follows','following_id','followed_id');
+        return $this->belongsToMany('App\User','follows','followed_id','following_id');
     }
     //フォローする
     public function follow(Int $user_id)
@@ -34,17 +35,17 @@ class User extends Authenticatable
     //フォローを解除する
     public function unfollow($user_id)
     {
-        return $this->following()->attach($user_id);
+        return $this->following()->detach($user_id);
     }
     //フォローしているか
     public function isFollowing($user_id)
     {
-        return(boolean) $this->following()->where('followed_id',$user_id)->first();
+        return $this->following()->where('following_id', $user_id)->exists();
     }
     //フォローされているか
     public function isFollowed($user_id)
     {
-        return(boolean) $this->followed()->where('following_id',$user_id)->first();
+        return $this->followed()->where('followed_id', $user_id)->exists();
     }
 
 
