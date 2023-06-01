@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 
 class UsersController extends Controller
@@ -22,14 +22,18 @@ class UsersController extends Controller
 
     public function follow(Request $request, User $user)
     {
+        if (Auth::check()) {
         $request->user()->follow($user->id);
+        }
         return back();
     }
 
     public function unfollow(Request $request, $id)
     {
+        if (Auth::check()) {
         $user = User::findOrFail($id);
         $request->user()->unfollow($user->id);
+        }
         return back();
     }
 
