@@ -48,16 +48,16 @@ Route::get('follow-list','FollowsController@followList');
 Route::get('follower-list','FollowsController@followerList');
 
 // フォロー解除のルート
-Route::post('/users/{user}/unfollow', 'FollowsController@unfollow')->name('unfollow');
+Route::post('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow');
 
 // フォローのルート
-Route::post('/users/{user}/follow', 'FollowsController@follow')->name('follow');
+Route::post('/users/follow/{id}', 'UsersController@follow')->name('follow');
 
 //フォローリスト表示のルーティング
-Route::get('users/{user}/following', 'UserController@followingList')->name('following.list');
+Route::get('users/{user}/following', 'UsersController@followingList')->name('following.list');
 
 //フォロワーリストのルーティング
-Route::get('users/{user}/followers', 'UserController@followerList')->name('followers.list');
+Route::get('users/{user}/followers', 'UsersController@followerList')->name('followers.list');
 
 //つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');
