@@ -13,7 +13,7 @@ class PostsController extends Controller
     {
         $list = Post::get();//Postテーブルの情報を参照
         return view('posts.index',['lists'=>$list]);
-        $list = Auth::user();
+        // $list = Auth::user();
     }
     //下記つぶやき機能に接続するメソッドを新規追加
     public function create(Request $request)

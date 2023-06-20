@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,24 +16,27 @@ class UsersController extends Controller
 
     public function search(Request $request)
     {
-        $users = User::get();
         $searchWord = $request->input('searchWord');
+        $users = User::get();
         return view('users.search', compact('users', 'searchWord'));
     }
 
-    public function follow(Request $request, User $user)
+    public function follow(User $user,$id)
     {
         if (Auth::check()) {
-        $request->user()->follow($user->id);
+        // $request->user()->following()->attach($user->id);
         }
-        return back();
+        $following=auth()->user();//$followingは変数あだ名をつけている
+        $following->follow($id);//idを使ってフォローしといてという意味
+
+        return redirect('/search');//毎回検索画面に戻るようにリダイレクトしている
     }
 
     public function unfollow(Request $request, $id)
     {
         if (Auth::check()) {
         $user = User::findOrFail($id);
-        $request->user()->unfollow($user->id);
+        $request->user()->unfollowing()->detach($user->id);
         }
         return back();
     }

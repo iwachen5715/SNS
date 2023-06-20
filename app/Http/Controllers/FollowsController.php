@@ -10,18 +10,34 @@ class FollowsController extends Controller
 {
     public function follow(User $user)
     {
-        if (Auth::check()) {
-            Auth::user()->follow($user->id);
-        }
+        // if (Auth::check()) {
+        //     Auth::user()->follow($user->id);
+        // }
+        // return back();
+        $follower = auth()->user();
+        //フォローしているか
+        $is_followings = $follower->isFollowing($user->id);
+    if(!$is_following) {
+        //フォローしていなければフォローする
+        $follower->follow($user->id);
         return back();
+        }
     }
 
     public function unfollow(User $user)
     {
-        if (Auth::check()) {
-            Auth::user()->unfollow($user->id);
+        // if (Auth::check()) {
+        //     Auth::user()->unfollow($user->id);
+        // }
+        // return back();
+        $follower = auth()->user();
+        //フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if($is_following) {
+            //フォローしていればフォローを解除する
+            $follower->unfollow($user->id);
+            return back();
         }
-        return back();
     }
 }
 

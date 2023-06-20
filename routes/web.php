@@ -51,7 +51,7 @@ Route::get('follower-list','FollowsController@followerList');
 Route::post('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow');
 
 // フォローのルート
-Route::post('/users/follow/{id}', 'UsersController@follow')->name('follow');
+Route::get('/users/follow/{id}', 'UsersController@follow')->name('follow');
 
 //フォローリスト表示のルーティング
 Route::get('users/{user}/following', 'UsersController@followingList')->name('following.list');

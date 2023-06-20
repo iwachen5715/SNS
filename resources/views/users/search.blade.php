@@ -12,27 +12,29 @@
         </div>
     @endif
 
-    @foreach ($users as $User)
-        <p>{{ $User->username }}</p>
-        <div>
+    @foreach ($users as $user)
+        <p>{{ $user->username }}</p>
+       <div>
             <tr>
                 <td>
-                    <img src="storage/{{ $User->images }}" alt="icon" class="icon-space">
+                    <img src="{{ asset('storage/' ,$user->images) }}" alt="icon" class="icon-space">
                 </td>
                 <td>
-                    {{ $User->username }}
+                    {{ $user->username }}
                 </td>
                 <td>
-                    @if(Auth::user() && Auth::user()->isFollowing($User->id))
-                        <form action="{{ route('unfollow', $User->id) }}" method="POST">
+                    @if(auth()->user()->isFollowing($user->id))
+                        <form action="{{ route('unfollow', $user->id) }}" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-danger">フォロー解除する</button>
                         </form>
                     @else
-                        <form action="{{ route('follow', $User->id) }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-primary">フォローする</button>
                         </form>
+                        <a href="{{ route('follow', ['id'=>$user->id]) }}">フォローする<</a>
+                        <!-- aタグにする理由としてURLでパラメーターを送るときはaタグで送りたいため-->
                     @endif
                 </td>
             </tr>
