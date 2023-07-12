@@ -20,7 +20,7 @@
 
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
 Route::post('/login', 'Auth\LoginController@login');
 
@@ -43,21 +43,21 @@ Route::get('/search','UsersController@search')->name('search');
 //検索後に検索ワードを画面に表示する場合
 Route::post('/search', 'UsersController@search')->name('search');
 
-Route::get('follow-list','FollowsController@followList');
+// Route::get('follow-list','FollowsController@followList');
 
-Route::get('follower-list','FollowsController@followerList');
+// Route::get('follower-list','FollowsController@followerList');
 
 // フォロー解除のルート
-Route::post('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow');
+Route::get('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow');//aタグとしてパラメーターで送っているためpostじゃだめ
 
 // フォローのルート
 Route::get('/users/follow/{id}', 'UsersController@follow')->name('follow');
 
 //フォローリスト表示のルーティング
-Route::get('users/{user}/following', 'UsersController@followingList')->name('following.list');
+Route::get('/follow-list', 'PostsController@followList')->name('follow.list');
 
 //フォロワーリストのルーティング
-Route::get('users/{user}/followers', 'UsersController@followerList')->name('followers.list');
+Route::get('/follower-list', 'PostsController@followerList')->name('follower.list');
 
 //つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');

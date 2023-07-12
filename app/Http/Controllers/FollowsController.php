@@ -16,7 +16,7 @@ class FollowsController extends Controller
         // return back();
         $follower = auth()->user();
         //フォローしているか
-        $is_followings = $follower->isFollowing($user->id);
+        $is_following = $follower->isFollowing($user->id);
     if(!$is_following) {
         //フォローしていなければフォローする
         $follower->follow($user->id);

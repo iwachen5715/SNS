@@ -24,16 +24,9 @@
                 </td>
                 <td>
                     @if(auth()->user()->isFollowing($user->id))
-                        <form action="{{ route('unfollow', $user->id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">フォロー解除する</button>
-                        </form>
+                            <button type="submit" class="btn btn-danger"><a href="{{ route('unfollow', ['id'=>$user->id]) }}">フォロー解除する</a></button>
                     @else
-                        <form action="" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">フォローする</button>
-                        </form>
-                        <a href="{{ route('follow', ['id'=>$user->id]) }}">フォローする<</a>
+                            <button type="submit" class="btn btn-primary"><a href="{{ route('follow', ['id'=>$user->id]) }}">フォローする</a></button>
                         <!-- aタグにする理由としてURLでパラメーターを送るときはaタグで送りたいため-->
                     @endif
                 </td>

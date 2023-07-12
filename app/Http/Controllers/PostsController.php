@@ -50,10 +50,18 @@ class PostsController extends Controller
 
     }
 
-    //投稿一覧の表示のメソッド
-    // public function index()
-    // {
-    // $posts = Post::all(); // 投稿一覧を取得する処理
-    // return view('posts.index', compact('posts'));
-    // }
+//フォローしているユーザーの投稿表示
+   public function followerList(){
+    // ユーザーが認証されているかを確認
+    if(auth()->check()){
+        // フォローしているユーザーの投稿を取得
+        $posts = auth()->user()->followings()->with('posts')->get()->pluck('posts')->flatten();
+        // ビューにデータを渡して表示
+        return view('follow-list', compact('posts'));
+    } else {
+        // ユーザーが認証されていない場合の処理
+        // 例えば、ログインページにリダイレクトするなどの処理を行う
+        return redirect()->route('login');
+    }
+}
 }
