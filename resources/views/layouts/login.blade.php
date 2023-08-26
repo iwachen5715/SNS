@@ -24,7 +24,7 @@
         <div id = "head">
             <h1><a href="/top"><img class="topIcon" src="images/atlas.png"></a></h1>
             <div id = "middle">
-                <p class="users menu-btn">admin  さん <span class="accordion-title"></span>
+                <p class="users menu-btn">{{ Auth::user()->username }} さん <span class="accordion-title"></span>
                 <div id = "item">
                     <img class="Item" src="{{asset('/images/icon1.png') }}"></p>
                 </div>
@@ -45,19 +45,15 @@
             @yield('content')
         </div >
         <div id="side-bar">
-            <div id="confirm">
-                <p>admin さんの</p>
+                <p>{{ Auth::user()->username }} さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>名</p>
+               <p>フォロー数 {{ Auth::user()->followings->count() }}人</p>
+                <p>フォロワー数 {{ Auth::user()->followers->count() }}人</p>
                 </div>
                 <p class="btn red"><a href="/follow-list">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>名</p>
-                </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
-            </div>
+                </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>

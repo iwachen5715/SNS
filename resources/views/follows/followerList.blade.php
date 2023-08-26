@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
     <h1>Follower List</h1> <!--ページの見出しが表示-->

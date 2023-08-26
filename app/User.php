@@ -19,7 +19,7 @@ class User extends Authenticatable
     //上記の記述は特定のオブジェクト（例えば、ユーザー）に関連付けられた投稿（Post）の情報を取得するためのものです
 
     // フォロー機能
-    public function following()
+    public function followings()
     {
         return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
     }//リレーションの記述 thisはfollowingメソッドのことを言っている
@@ -36,21 +36,21 @@ class User extends Authenticatable
 
     public function follow(Int $user_id)//Intは整数型のみ指定するもの それ以外はエラーが出る（1.2.3.4.5.６）
     {
-        return $this->following()->attach($user_id);
+        return $this->followings()->attach($user_id);
     }//上記のリレーションでUSERテーブルからフォローテーブルに繋げている→attach($user_id)メソッドは、中間テーブルにフォロー関係のレコードを追加している
     //followメソッドは、現在のユーザーが別のユーザーをフォローするために使用されます。followings()メソッドを介して定義されたリレーションを使用して、中間テーブルにフォロー情報を追加します。attach($user_id)メソッドは、中間テーブルにフォロー関係のレコードを追加します。$user_idは、フォローするユーザーのIDを指定します。
 
     // フォローを解除する
     public function unfollow(Int $user_id)
     {
-         return $this->following()->detach($user_id);
+         return $this->followings()->detach($user_id);
     }
     //unfollowメソッドは、現在のユーザーが別のユーザーのフォローを解除するために使用されます。followings()メソッドを介して定義されたリレーションを使用して、中間テーブルからフォロー関係のレコードを削除します。detach($user_id)メソッドは、中間テーブルから指定したユーザーIDに対応するフォロー関係のレコードを削除します。
 
     // フォローしているか
     public function isFollowing(Int $user_id)
     {
-        return (boolean) $this->following()->where('followed_id', $user_id)->first();
+        return (boolean) $this->followings()->where('followed_id', $user_id)->first();
     }
     //(boolean)は、結果を「はい」か「いいえ」の形で返す。つまり、trueは「はい」を意味し、falseは「いいえ」を意味する。また真偽をチェックするときは取得するデータはオブジェクト型で取得する。
 

@@ -13,13 +13,18 @@ class UsersController extends Controller
     {
         return view('users.profile');
     }
-
+//ユーザー検索の実装のコード
     public function search(Request $request)
-    {
-        $searchWord = $request->input('searchWord');
-        $users = User::get();
-        return view('users.search', compact('users', 'searchWord'));
+{
+    $searchWord = $request->input('searchWord');
+    if ($searchWord) {
+        $users = User::where('username', 'like', '%' . $searchWord . '%')
+                     ->get();
+    } else {
+        $users = User::all();
     }
+    return view('users.search', compact('users', 'searchWord'));
+}
 
     public function follow(User $user,$id)
     {

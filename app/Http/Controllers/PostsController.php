@@ -10,11 +10,18 @@ class PostsController extends Controller
 {
     //
     public function index()
+    // {
+    //     $list = Post::get();//Postテーブルの情報を参照
+    //     return view('posts.index',['lists'=>$list]);
+    //     // $list = Auth::user();
+    // }
     {
         $list = Post::get();//Postテーブルの情報を参照
         return view('posts.index',['lists'=>$list]);
         // $list = Auth::user();
     }
+
+
     //下記つぶやき機能に接続するメソッドを新規追加
     public function create(Request $request)
     {
@@ -49,19 +56,18 @@ class PostsController extends Controller
     return redirect('/top');
 
     }
-
 //フォローしているユーザーの投稿表示
-   public function followerList(){
+public function followerList(){
     // ユーザーが認証されているかを確認
     if(auth()->check()){
         // フォローしているユーザーの投稿を取得
         $posts = auth()->user()->followings()->with('posts')->get()->pluck('posts')->flatten();
         // ビューにデータを渡して表示
-        return view('follow-list', compact('posts'));
+        return view('follows.followList', compact('posts'));
     } else {
         // ユーザーが認証されていない場合の処理
         // 例えば、ログインページにリダイレクトするなどの処理を行う
         return redirect()->route('login');
     }
-}
+  }
 }

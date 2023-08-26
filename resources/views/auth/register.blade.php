@@ -2,7 +2,18 @@
 
 @section('content')
 
-{!! Form::open(['url' => '/register']) !!}
+<!--バリデーションメッセージ -->
+@if($error->any())
+   <div class="register_error">
+    <ul>
+      @foreach(@errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+     </ul>
+   </div>
+@endif
+<!-- 適切なURLを入力してください -->
+{!! Form::open(['url' => '/login']) !!}
 
 <h2>新規ユーザー登録</h2>
 
