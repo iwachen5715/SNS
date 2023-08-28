@@ -10,15 +10,16 @@ class PostsController extends Controller
 {
     //
     public function index()
-    // {
-    //     $list = Post::get();//Postテーブルの情報を参照
-    //     return view('posts.index',['lists'=>$list]);
-    //     // $list = Auth::user();
-    // }
     {
         $list = Post::get();//Postテーブルの情報を参照
-        return view('posts.index',['lists'=>$list]);
-        // $list = Auth::user();
+        $user = Auth::user(); // ログインユーザーを取得
+        $followings = $user->followings; // フォロー中のユーザーを取得
+
+        $posts = Post::whereIn('user_id', $followings->pluck('id'))
+                     ->orderBy('created_at', 'desc')
+                     ->paginate(10);
+        return view('posts.index',['lists'=>$list, 'followings' => $followings]);
+
     }
 
 

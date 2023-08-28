@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
 {
+
+
+    public function index()
+    {
+        $user = Auth::user(); // ログインユーザーを取得
+        $followings = $user->followings; // フォロー中のユーザーを取得
+
+        return view('following.index', compact('followings'));
+    }
+
+
     public function follow(User $user)
     {
         // if (Auth::check()) {

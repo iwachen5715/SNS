@@ -25,9 +25,8 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 //新規登録用バリデートビュー
-Route::get('/register', 'Auth\RegisterController@register');
-
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@register'); // ユーザー登録フォームを表示する
+Route::post('/register', 'Auth\RegisterController@register'); // ユーザー登録を処理する
 
 Route::get('/added', 'Auth\RegisterController@added');
 
@@ -38,10 +37,16 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
+//フォローリストのユーザーの投稿表示:
+Route::get('/follow-list', 'PostsController@followList');
+
+
 //ログアウト機能
 Route::get('/logout','Auth\LoginController@logout');
+
 //検索実装のルート
 Route::get('/search','UsersController@search')->name('users.search');
+
 //検索後に検索ワードを画面に表示する場合
 Route::post('/search', 'UsersController@search')->name('search');
 //URL
@@ -71,4 +76,6 @@ Route::get('/post/{id}/delete','PostsController@delete');
 Route::post('post/update','PostsController@updateForm');
 
 //投稿一覧表示のルート
-Route::get('/posts', 'PostController@index')->name('posts.index');
+Route::get('/top', 'PostsController@index')->name('top');
+
+Route::post('/post/update', 'PostsController@updateForm')->name('update.post');

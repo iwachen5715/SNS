@@ -3,17 +3,17 @@
 @section('content')
 
 <!--バリデーションメッセージ -->
-@if($error->any())
+@if($errors->any())
    <div class="register_error">
     <ul>
-      @foreach(@errors->all() as $error)
+      @foreach($errors->all() as $error)
       <li>{{ $error }}</li>
       @endforeach
      </ul>
    </div>
 @endif
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
 
@@ -27,7 +27,7 @@
 {{ Form::text('password',null,['class' => 'input']) }}
 
 {{ Form::label('パスワード確認') }}
-{{ Form::text('password-confirm',null,['class' => 'input']) }}
+{{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
 

@@ -9,6 +9,18 @@
      </div>
      <button type="submit" class="btn btn-success pull-right"><img class="Upload" src="images/post.png"></button>
  {!! Form::close() !!}
+ <table>
+        <thead>
+            <tr>
+                <th>ユーザー名</th>
+                <th>ユーザーID</th>
+                <th>投稿内容</th>
+                <th>投稿日時</th>
+                <th>編集</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+     <tbody>
 @foreach ($lists as $list)
     <tr>
         <td>{{ $list->user->username }}</td>
@@ -22,17 +34,31 @@
          <!-- aタグによって別のページに移動する属性でhref属性でその方向性を記述している -->
     </tr>
 @endforeach
- <!-- モーダルの中身 -->
-    <div class="modal js-modal">
-        <div class="modal__bg js-modal-close"></div>
-        <div class="modal__content">
-           <form action="post/update" method="post">
-                <textarea name="Post" class="modal_post"></textarea><!-- 名前をつける-->
-                <input type="hidden" name="id" class="modal_id" value="">
-                <input type="submit" value="更新">
-                {{ csrf_field() }}
-           </form>
-           <a class="js-modal-close" href="">閉じる</a>
-        </div>
+</tbody>
+</table>
+<!-- フォローユーザーのアイコン表示 -->
+<div class="followed-users">
+    <h3>フォローしているユーザーのアイコン一覧</h3>
+    <div class="icon-list">
+        @foreach ($followings as $following)
+            <div class="icon-item">
+                <img src="{{ asset('storage/' .$following->images) }}" alt="{{ $following->username }}のアイコン">
+                <p>{{ $following->username }}</p>
+            </div>
+        @endforeach
     </div>
+</div>
+<!-- モーダルの中身 -->
+<div class="modal js-modal">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+        <form action="{{ route('update.post') }}" method="post"> <!-- 適切なルート名を指定 -->
+            <textarea name="Post" class="modal_post"></textarea>
+            <input type="hidden" name="id" class="modal_id" value="">
+            <input type="submit" value="更新">
+            @csrf <!-- Laravel の CSRF トークンを追加 -->
+        </form>
+        <a class="js-modal-close" href="">閉じる</a>
+    </div>
+</div>
 @endsection
