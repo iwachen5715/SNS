@@ -45,20 +45,17 @@
             @yield('content')
         </div >
         <div id="side-bar">
-                <p>{{ Auth::user()->username }} さんの</p>
-                <div>
-               <p>フォロー数 {{ Auth::user()->followings->count() }}人</p>
-                <p>フォロワー数 {{ Auth::user()->followers->count() }}人</p>
-                </div>
-                <p class="btn red"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
-                </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
-        </div>
+    <p>{{ Auth::user()->username }} さんの</p>
+    <div>
+        <p>フォロー数 {{ Auth::user()->followings->count() }}人</p>
+        <p class="btn"><a href="/follow-list">フォローリスト</a></p>
     </div>
-    <footer>
-    </footer>
+    <div>
+        <p>フォロワー数 {{ Auth::user()->followers->count() }}人</p>
+        <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+    </div>
+    <p class="btn"><a href="/search">ユーザー検索</a></p>
+</div>
     <!--JSリンクの設置 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('/js/script.js') }}"></script>

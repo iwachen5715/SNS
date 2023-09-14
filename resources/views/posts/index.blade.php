@@ -24,7 +24,7 @@
 @foreach ($lists as $list)
     <tr>
         <td>{{ $list->user->username }}</td>
-        <td>{{ $list->user_id }}</td>
+        <!-- <td>{{ $list->user_id }}</td> -->
         <td>{{ $list->post }}</td>
         <td>{{ $list->created_at }}</td>
         <!-- 更新 -->
@@ -36,18 +36,7 @@
 @endforeach
 </tbody>
 </table>
-<!-- フォローユーザーのアイコン表示 -->
-<div class="followed-users">
-    <h3>フォローしているユーザーのアイコン一覧</h3>
-    <div class="icon-list">
-        @foreach ($followings as $following)
-            <div class="icon-item">
-                <img src="{{ asset('storage/' .$following->images) }}" alt="{{ $following->username }}のアイコン">
-                <p>{{ $following->username }}</p>
-            </div>
-        @endforeach
-    </div>
-</div>
+
 <!-- モーダルの中身 -->
 <div class="modal js-modal">
     <div class="modal__bg js-modal-close"></div>

@@ -45,17 +45,7 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'username' => 'required|string|max:255',
-    //         'mail' => 'required|string|email|max:255|unique:users',
-    //         'password' => 'required|string|min:4|confirmed',
-    //     ]);
-    // }
 
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -91,28 +81,6 @@ class RegisterController extends Controller
         }
         return view('auth.register');
     }
-
-    // public function registerForm(){
-    //     return view("auth.register");
-    // }
-
-//     public function register(Request $request){
-//         if($request->isMethod('post')){
-//             $data = $request->input();
-
-//             $this->create($data);
-//             $username = $this->create($data);
-// $user = $request->get('username');
-// return redirect('added')->with('username', $user);
-//             return redirect('added');
-//         }
-//         return view('auth.register');
-//     }
-
-
-
-
-
 
     public function added(){
         return view('auth.added');

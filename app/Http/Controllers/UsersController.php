@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -21,7 +22,7 @@ class UsersController extends Controller
         $users = User::where('username', 'like', '%' . $searchWord . '%')
                      ->get();
     } else {
-        $users = User::all();
+        $users = User::where('id', '!=', Auth::id())->get();
     }
     return view('users.search', compact('users', 'searchWord'));
 }
@@ -46,30 +47,4 @@ class UsersController extends Controller
         }
         return back();
     }
-
-
-
-
-    //フォローリストのユーザーアイコン表示
-//      public function followList()
-//     {
-//         $user = auth()->user(); // ログインユーザーの取得
-
-//         // フォローリストの取得
-//         $followings = $user->followings()->with('profile')->get();//with('profile')を使用して、取得したフォローリストのユーザーに関連付けられたプロフィール情報も同時に取得する。
-
-//         return view('follow-list', compact('followings'));//compact()関数は、指定した変数名をキーとして、それに対応する変数の値を含む連想配列を作成
-//         //get()メソッドを使用して、上記のクエリを実行し、フォローリストを取得。//compact('followings')を使用して、取得したフォローリストをビューに渡す
-
-//     }
-
-//    public function followerList()
-//     {
-//         $user = auth()->user(); // ログインユーザーの取得
-
-//         // フォロワーリストの取得
-//         $followers = $user->with('profile')->get();//with('profile')を使用して、取得したフォロワーリストのユーザーに関連付けられたプロフィール情報も同時に取得する。
-
-//         return view('follower-list', compact('followers'));//get()メソッドを使用して、上記のクエリを実行し、フォロワーリストを取得。//compact('followings')を使用して、取得したフォロワーリストをビューに渡す
-//     }
 }

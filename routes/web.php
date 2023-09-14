@@ -61,10 +61,10 @@ Route::get('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow')
 Route::get('/users/follow/{id}', 'UsersController@follow')->name('follow');
 
 //フォローリスト表示のルーティング
-Route::get('/follow-list', 'PostsController@followList')->name('follow.list');
+Route::get('/follow-list', 'FollowsController@followList')->name('follow.list');
 
 //フォロワーリストのルーティング
-Route::get('/follower-list', 'PostsController@followerList')->name('follower.list');
+Route::get('/follower-list', 'FollowsController@followerList')->name('follower.list');
 
 //つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');
