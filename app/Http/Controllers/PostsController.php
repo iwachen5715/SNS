@@ -19,7 +19,7 @@ class PostsController extends Controller
         $posts = Post::whereIn('user_id', $followings->pluck('users.id'))
                      ->orderBy('created_at', 'desc')
                      ->paginate(10);
-        return view('posts.index',['lists'=>$list, 'followings' => $followings]);
+        return view('posts.index',['lists'=>$list, 'followings' => $followings, 'user' => $user]);
 
     }
 

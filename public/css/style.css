@@ -21,13 +21,15 @@ header {
 
 #side-bar {
     flex: 0 0 19%;
-    /* #はHTMLのID属性
-   */
+    border-left: 1px solid #666;
+
+
 }
 
 #head {
     display: flex;
     justify-content: space-between;
+    height: 90px;
 }
 
 #middle {
@@ -39,6 +41,7 @@ header {
     display: flex;
     justify-content:
         space-between;
+    height: 90px;
 }
 
 /* アコーディオンメニュー */
@@ -120,9 +123,16 @@ a:hover {
     height: 50px;
 }
 
+.comment-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .topIcon {
-    height: 25px;
-    margin: 12px;
+    margin-left: 20px;
+    height: 40px;
+    margin: 20px;
 }
 
 .users {
@@ -132,14 +142,14 @@ a:hover {
     font-weight: 20px;
     text-align: right;
     padding: 21px;
-    width: 90px;
+    width: 100%;
 }
 
 .Item {
     /* margin-left: 40px; */
     margin: auto 23px;
     top: 20px;
-    height: 37px;
+    height: 45px;
 
 
 }
@@ -151,6 +161,8 @@ a:hover {
     text-align: center;
     line-height: 25px;
     padding: 22px 35px;
+    mix-blend-mode: differnce;
+
 }
 
 .center {
@@ -165,9 +177,9 @@ a:hover {
 
 }
 
-.icon:hover {
-    background-color: red;
-}
+
+
+
 
 .accordion-title:after {
     content: "";
@@ -227,23 +239,285 @@ a:hover {
 .Trash {
     height: 25px;
     top: 10px;
+    margin-left: 40px;
+}
+
+.Trash:hover {
+    color: #fff;
+    /* 文字色を白にする */
+    background-color: red;
+    text-decoration: none;
 }
 
 /* つぶやきの編集ボタンのCSS */
 .Update {
     height: 25px;
     top: 10px;
+    margin-left: 30px;
 }
 
 /* 投稿ボタン紙飛行機マークのCSS */
 .Upload {
-    height: 60px;
-    top: 60px;
+    background: #fff;
+    height: 95px;
+    margin-top: 30px;
+
+}
+
+.send-btn {
+    background: #fff;
+    border: none;
 }
 
 /* 検索後の紙飛行機投稿マークのCSS */
 .Botton {
     height: 60px;
     top: 60px;
+}
 
+/* プロフィール編集更新の入力フォーム */
+.form-group {
+    margin-left: 320px;
+    margin-top: 28px;
+    width: fit-content;
+
+}
+
+/* indexの投稿内容入力フォームのCSS */
+.postContents {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 500px;
+    height: 50px;
+}
+
+/* 検索機能アイコンのサイズ */
+.icon-space {
+    height: 35px;
+}
+
+/* 自分のプロフィールのアイコンサイズ */
+.icon-image {
+    height: 45px;
+    top: 120px;
+    margin-left: 260px;
+
+
+}
+
+.form-control {
+    width: 100%;
+}
+
+.btn_base {
+    background: #0066CC;
+    width: 129px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+
+}
+
+.btn_base a {
+    color: #fff;
+}
+
+.btn_bases a {
+    color: #fff;
+}
+
+/* ユーザー検索ページに遷移するためのボタンCSS */
+.btn_bases {
+    margin-right: 50px;
+    margin-left: 20px;
+    margin-top: 25px;
+    background: #0066CC;
+    width: 120px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+
+
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    margin-left: 100px;
+    transition: 0.3s;
+}
+
+.side-flex {
+    display: flex;
+    align-items: center;
+
+}
+
+.side-flex p {
+    margin-right: 10px;
+    margin: 10px;
+
+
+}
+
+.side-right {
+    margin: 0 0 0 auto;
+    height: 70px;
+
+    /* 適切な高さに変更してください */
+}
+
+
+.side-search_btn {
+    margin-top: 50px;
+    width: 279px;
+    border-top: solid 1px gray;
+}
+
+/* 新規投稿の入力欄のCSS */
+.comment-box input.form-control {
+    border: none;
+    margin-top: 20px;
+    margin-left: 10px;
+    /* ボーダーを非表示にする */
+}
+
+/* インデックスの投稿アイコン */
+.PostIcon {
+    margin-top: 35px;
+    /* left: px; */
+    height: 50px;
+
+
+}
+
+/* IndexのユーザーアイコンのCSS */
+.MyIcon {
+    margin-top: 125px;
+    margin-left: 120px;
+    height: 45px;
+
+    display: flex;
+}
+
+/* フォローリストのユーザーアイコンのCSS */
+.FollowIcon {
+    margin: 20px;
+    height: 40px;
+
+}
+
+/* フォロワーリストのユーザーアイコンのCSS */
+.FollowerIcon {
+    margin: 20px;
+    height: 40px;
+}
+
+/* 右サイドのログインユーザの名前 */
+.side-username {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    /* border-left: 1px solid #000; */
+
+}
+
+
+
+/* 右サイドユーザー検索ボタンのCSS */
+
+
+
+
+
+/* .line {
+    border-bottom: 1px
+
+} */
+
+/* .line-wrapper {
+    border-bottom: 1px;
+} */
+
+/* ユーザー検索の際のフォローボタンのCSS*/
+.btn-primary {
+    background: #0099FF;
+    width: 98px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+
+/* ユーザー検索の際のフォロー解除ボタンのCSS */
+.btn-danger {
+    background: #FF0000;
+    width: 98px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+
+
+/* ユーザー検索の際のフォローボタンのCSSの文字色*/
+.btn-primary a {
+    color: #fff;
+    font-weight: lighter;
+
+}
+
+/* ユーザー検索の際のフォロー解除ボタンのCSSの文字色 */
+.btn-danger a {
+    color: #fff;
+    font-weight: lighter;
+}
+
+
+.thin-wrapper {
+    width: 50px;
+    /* 例として50pxに設定（必要に応じて調整） */
+    margin: 0 auto;
+    /* 中央揃えする場合 */
+}
+
+.line {
+    display: block;
+    width: 80%;
+    height: 1px;
+    /* 線の太さを調整 */
+    background-color: #000;
+    /* 線の色を調整 */
+}
+
+.post-row {
+    top: 100px;
+    border-bottom: 1px solid #ccc;
+
+    /* 好みの線のスタイルや色に変更できます */
+}
+
+/* .side-bar {
+    border-left: 1px solid #000;
+} */
+/* アコーディオン開閉ボタン左隣のログインユーザー名 */
+.users.menu-btn {
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+
+.search {
+    margin-top: 40px;
+    margin-left: 70px;
+    height: 40px;
+    width: 310px;
 }

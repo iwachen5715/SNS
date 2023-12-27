@@ -26,7 +26,7 @@
             <div id = "middle">
                 <p class="users menu-btn">{{ Auth::user()->username }} さん <span class="accordion-title"></span>
                 <div id = "item">
-                    <img class="Item" src="{{asset('/images/icon1.png') }}"></p>
+                    <img class="Item" src="{{ asset('storage/user-images/'. Auth::user()->images) }}">
                 </div>
             </div>
              <!--アコーディオンメニュ-->
@@ -44,18 +44,43 @@
         <div id="container">
             @yield('content')
         </div >
+        <!-- 右側 -->
         <div id="side-bar">
-    <p>{{ Auth::user()->username }} さんの</p>
-    <div>
-        <p>フォロー数 {{ Auth::user()->followings->count() }}人</p>
-        <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-    </div>
-    <div>
-        <p>フォロワー数 {{ Auth::user()->followers->count() }}人</p>
-        <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
-    </div>
-    <p class="btn"><a href="/search">ユーザー検索</a></p>
+
+        <div id="confirm">
+            <div class="side-top">
+    <p class="side-username">{{ Auth::user()->username }}さんの</p>
 </div>
+
+
+    <div class="side-flex">
+        <p class="side-username">フォロー数 </p>
+        <p>{{ Auth::user()->followings->count() }}人</p>
+    </div>
+
+
+    <div class="side-right">
+        <p class="btn btn_base"><a href="{{ asset('/follow-List') }}">フォローリスト</a></p>
+</div>
+
+<div class="side-flex">
+    <p class="side-username">フォロワー数</p>
+    <p>{{ Auth::user()->followers()->count() }}人</p>
+</div>
+<div class="side-right">
+    <p class="btn btn_base"><a href="{{ asset('/follower-List') }}">フォロワーリスト</a></p>
+  </div>
+</div>
+
+<div class="side-search_btn">
+    <p class="btn btn_bases"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
+</div>
+
+</div>
+</div>
+<footer>
+</footer>
+</footer>
     <!--JSリンクの設置 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('/js/script.js') }}"></script>

@@ -25,20 +25,29 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 //新規登録用バリデートビュー
-Route::get('/register', 'Auth\RegisterController@register'); // ユーザー登録フォームを表示する
+// ユーザー登録フォームを表示する
+Route::get('/register', 'Auth\RegisterController@register');
+// ユーザー登録を処理する
 Route::post('/register', 'Auth\RegisterController@register'); // ユーザー登録を処理する
 
 Route::get('/added', 'Auth\RegisterController@added');
 
 Route::post('/added','Auth\RegisterController@added');
 
-//ログイン中のページ
+//ミドルウェアのアクセス制限のルーティング
+Route::group(['middleware' => 'auth'], function (){
+  //ログイン中のページ
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
 //フォローリストのユーザーの投稿表示:
 Route::get('/follow-list', 'PostsController@followList');
+
+//フォローリストのアイコンをクリックしたらその他ユーザーのプロフィール画面に飛ぶ。
+Route::get('users/{id}/profile' , 'UsersController@profile')->name('profile.index');
+
+Route::get('users/{id}/profile', 'UsersController@show')->name('profile.show');
 
 
 //ログアウト機能
@@ -61,10 +70,11 @@ Route::get('/users/unfollow/{id}', 'UsersController@unfollow')->name('unfollow')
 Route::get('/users/follow/{id}', 'UsersController@follow')->name('follow');
 
 //フォローリスト表示のルーティング
-Route::get('/follow-list', 'FollowsController@followList')->name('follow.list');
-
-//フォロワーリストのルーティング
-Route::get('/follower-list', 'FollowsController@followerList')->name('follower.list');
+// Route::get('/follow-list', 'FollowsController@followList')->name('follow.list');
+Route::get('/follow-List', 'FollowsController@followList')->name('follows.followList');
+//フォロワーリスト表示のルーティング
+// Route::get('/follower-list', 'FollowsController@followerList')->name('follows.followerList');
+Route::get('/follower-List', 'FollowsController@followerList')->name('follows.followerList');
 
 //つぶやき投稿のルーティング
 Route::post('post/create','PostsController@create');
@@ -78,4 +88,8 @@ Route::post('post/update','PostsController@updateForm');
 //投稿一覧表示のルート
 Route::get('/top', 'PostsController@index')->name('top');
 
-Route::post('/post/update', 'PostsController@updateForm')->name('update.post');
+Route::post('post/update', 'PostsController@updateForm')->name('update.post');
+
+//プロフィール編集更新用のルーティング
+Route::post('profile/update', 'UsersController@profileEdit')->name('profile.update');
+});
