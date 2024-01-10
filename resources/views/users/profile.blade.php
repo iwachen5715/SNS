@@ -9,7 +9,7 @@
 <!-- プロフィールへのリンク -->
 <!-- <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">マイプロフィール</a> -->
 
-<a href="{{ route('profile.show', ['id' => $user->id]) }}">ユーザーのプロフィール</a>
+<a href="{{ route('profile.show', ['id' => $user->id]) }}"></a>
 
 
 <!-- 適切なURLを入力してください -->
@@ -20,41 +20,45 @@
 
 
 <div class="form-group">
-    {{ Form::label('user name', 'user name') }}
-    {{ Form::text('username', Auth::user()->username, ['class' => 'form-control']) }}
+   <p>user name</p>
+   <input type="text" class="items-input" name="username" value="{{ auth()->user()->username}}">
 </div>
 
 <div class="form-group">
-    {{ Form::label('mail address', 'mail address') }}
-    {{ Form::text('mail', Auth::user()->mail, ['class' => 'form-control']) }}
+   <p>mail adress</p>
+   <input type="email" class="items-input" name="mail" value="{{ auth()->user()->mail }}">
 </div>
 
 <div class="form-group">
-    {{ Form::label('password', 'password') }}
-    {{ Form::password('password', ['class' => 'form-control']) }}
+    <p>password</p>
+    <input type="password" class="items-input" name="password">
 </div>
 
 <div class="form-group">
-    {{ Form::label('password confirm', 'password confirm') }}
-    {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+    <p>password confirm</p>
+    <input type="password" class="items-input" name="password_confirmation">
 </div>
 
 <div class="form-group">
-    {{ Form::label('bio', 'bio') }}
-    {{ Form::text('bio', Auth::user()->bio, ['class' => 'form-control']) }}
+    <p>bio</p>
+    <input type="text" class="items-input" name="bio" value="{{ auth()->user()->bio }}">
 </div>
 
 <div class="form-group">
-    {{ Form::label('icon image', 'icon image') }}
-    {{ Form::file('images', ['class' => 'form-control']) }}
-</div>
+    <p>icon image</p>
+        <div id="app">
+          <label class="file-label">
+            <input type="file" name="icon_image">ファイルを選択
+          </label>
+        </div>
+      </div>
 
 
-    {{ Form::input('hidden', 'id', Auth::user()->id) }}
+    <!-- {{ Form::input('hidden', 'id', Auth::user()->id) }} -->
 
-    <div class="form-group">
-        {{ Form::submit('更新', ['class' => 'btn btn-success']) }}
-    </div>
+   <div class="btn-update">
+    <button type="submit" class="btn btn-update_color">更新</button>
+  </div>
 
 
 <!--バリデーションエラーメッセージ-->

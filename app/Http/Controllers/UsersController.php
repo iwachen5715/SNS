@@ -14,7 +14,7 @@ class UsersController extends Controller
     //  public function profile(Int $user_Id)
      public function profile()
     {
-        // $user = auth()->user();
+         $user = Auth::user();
         //リンク元のidを元にユーザー情報を取得する
         // $users = User::where('id', $user_Id)->first();
         // dd($users);
@@ -22,7 +22,7 @@ class UsersController extends Controller
         // $posts = Post::with('user')->where('user_id', $user_Id)-> latest('updated_at')-> get();
         //dd($posts);
         // return view('users.profile', compact('users', 'posts'));
-        return view('users.profile');
+        return view('users.profile', compact('user'));
 
     }
 
@@ -30,9 +30,10 @@ class UsersController extends Controller
     {
         // 特定のユーザーをデータベースから取得
         $user = User::findOrFail($id);
+        $posts = $user->posts;
 
         // ユーザー情報をビューに渡す
-        return view('profile.show', compact('user'));
+        return view('users.otherprofile', compact('user','posts'));
 
     }
 
@@ -100,9 +101,15 @@ class UsersController extends Controller
     }
             // パスワードをハッシュ化
             $hashedPassword = Hash::make($password);
+            if ($images !== null) {
+        User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
+    } else {
+        User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio]);
+    }
 
-        User::where('id', $id)->update
-            (['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
+
+        // User::where('id', $id)->update
+        //     (['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
 
         return redirect('/top');//更新を押したらTOPに戻る
         }

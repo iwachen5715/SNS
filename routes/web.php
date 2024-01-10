@@ -93,3 +93,11 @@ Route::post('post/update', 'PostsController@updateForm')->name('update.post');
 //プロフィール編集更新用のルーティング
 Route::post('profile/update', 'UsersController@profileEdit')->name('profile.update');
 });
+
+
+// 他ユーザーの遷移後のアカウントのフォローフォロー解除のルーティング
+// フォロールーティング
+Route::get('/profile/{user}/follow', 'FollowsController@follow')->middleware('auth');
+
+// フォロー解除ルーティング
+Route::get('/profile/{user}/unfollow', 'FollowsController@unfollow')->middleware('auth');

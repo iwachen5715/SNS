@@ -25,18 +25,48 @@ class PostsController extends Controller
 
 
     //下記つぶやき機能に接続するメソッドを新規追加
-    public function create(Request $request)
-    {
-        $post = $request->input('newPost');
-        $user_id=Auth::id();//誰の呟きかわかるようにユーザーIDが必要
-        Post::create([//Postテーブルを参照
-            'user_id'=>$user_id,
-            'post' => $post
+    // public function create(Request $request)
+    // {
+    //        $post = $request->input('newPost');
+    //     $user_id=Auth::id();//誰の呟きかわかるようにユーザーIDが必要
+    //     Post::create([//Postテーブルを参照
+    //         'user_id'=>$user_id,
+    //         'post' => $post
+    // ]);
+    //     //ポストテーブルに登録する記述
+    //     return redirect('/top');
+   public function create(Request $request)
+{
+    // フォームからのデータが正しく取得できているか確認
+    $post = $request->input('newPost');
+
+    // データが空でないことを確認するバリデーションルールを追加
+    $request->validate([
+        'newPost' => 'required|string|max:150',
     ]);
 
+    // ユーザーIDを取得
+    $user_id = Auth::id();
 
-        //ポストテーブルに登録する記述
-        return redirect('/top');
+    try {
+        // Postテーブルにデータを挿入
+        Post::create([
+            'user_id' => $user_id,
+            'post' => $post,
+        ]);
+
+        // データベース挿入成功時の処理
+        return redirect('/top')->with('success_message', '投稿が成功しました');
+    } catch (\Exception $e) {
+        // データベース挿入エラー時の処理
+        \Log::error('投稿データベース挿入エラー: ' . $e->getMessage());
+          // バリデーションエラーがあればエラーメッセージを取得
+        $errors = $validator->errors();
+
+        return redirect('/top')->with('error_message', '投稿に失敗しました');
+    }
+
+
     }
     //削除用メソッドの実装
     public function delete($id)//つぶやきのIDが＄idに入る
