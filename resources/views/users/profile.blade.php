@@ -57,7 +57,7 @@
     <!-- {{ Form::input('hidden', 'id', Auth::user()->id) }} -->
 
    <div class="btn-update">
-    <button type="submit" class="btn btn-update_color">更新</button>
+    <p class="btn btn-update_color">更新</p>
   </div>
 
 

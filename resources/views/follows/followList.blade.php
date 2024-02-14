@@ -1,23 +1,25 @@
 @extends('layouts.login')
 
 @section('content')
-    <h2 class="list-title">Follow List</h2>
-    @foreach($follow_icons as $follow_icon)
-        <tr>
-            <td>
-                <a href="users/{{ $follow_icon->id }}/profile">
-                    <img src="{{ asset('storage/user-images/'. $follow_icon->images) }}" alt="icon" class="icon-space">
-                </a>
-            </td>
-        </tr>
-    @endforeach
+    <div class="follow-list">
+        <h2 class="list-title">Follow List</h2>
+        <div class="icon-container">
+            @foreach($follow_icons as $follow_icon)
+                <div class="icon-space">
+                    <a href="users/{{ $follow_icon->id }}/profile">
+                        <img class="icon-size" src="{{ asset('storage/user-images/'. $follow_icon->images) }}" alt="icon">
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
     <div class="line-wrapper"><span class="bold line"></span></div>
 
     <ul>
         @foreach($posts as $post)
             <li>
-                <a href="users/{{ $post->user->id }}/profile">
+                <a href="users/{{ $post->user->id }}/profile" class="icon-space">
                     <img class="FollowIcon" src="{{ asset('storage/user-images/'. $post->user->images) }}" alt="icon">
                 </a>
 

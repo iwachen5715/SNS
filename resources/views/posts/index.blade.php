@@ -22,7 +22,7 @@
             $user->images) }}" alt="{{ $user->username }}のアイコン">
 
              <label for="comment"></label>
-           <textarea name="post" style ="border:none;" cols="100" rows="4" placeholder="投稿内容を入力してください。"></textarea>
+           <textarea name="post" style ="border:none;width: 70%; height: 100px; font-size: 20px;" cols="100" rows="4" placeholder="投稿内容を入力してください。"></textarea>
         <button type="submit" class="send-btn"><img class="Upload" src="images/post.png"></button>
 
         <!-- <input type="images" src="{{ asset('images/post.png') }}" class="submit_btn" alt="送信する"> -->
@@ -67,6 +67,8 @@
 </table>
 
 <!-- モーダルの中身 -->
+
+
 <div class="modal js-modal">
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content">

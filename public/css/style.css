@@ -97,10 +97,10 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-    width: 279px;
+    width: 286px;
     margin-top: 38px;
 
-    height: 250px;
+    height: 260px;
 
 
 
@@ -190,15 +190,15 @@ a:hover {
 .accordion-title:after {
     content: "";
     position: absolute;
-    right: 80px;
-    top: 6%;
+    right: 85px;
+    top: 37px;
     transition: all 0.2s ease-in-out;
     display: block;
     width: 8px;
     height: 8px;
-    border-top: solid 3px #fff;
-    border-right: solid 3px #fff;
-    -webkit-transform: rotate(135deg);
+    border-top: solid 2px #fff;
+    border-right: solid 2px #fff;
+    -webkit-transform: rotate(125deg);
     transform: rotate(135deg);
 
 }
@@ -206,7 +206,7 @@ a:hover {
 .accordion-title.open:after {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    top: 6.5%;
+    top: 39px;
 
 }
 
@@ -243,36 +243,39 @@ a:hover {
 
 /* 削除ボタンのタグ */
 .Trash {
-    height: 25px;
-    top: 10px;
-    margin-left: 40px;
+    width: 47px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
 }
 
+/* ホバーしたら、反転 */
 .Trash:hover {
-    color: #fff;
-    /* 文字色を白にする */
-    background-color: red;
-    text-decoration: none;
+    background-image: url('images/trash-h.png');
 }
+
 
 /* つぶやきの編集ボタンのCSS */
 .Update {
-    height: 25px;
+    height: 35px;
     top: 10px;
-    margin-left: 30px;
+    margin-left: 50px;
+
 }
 
 /* 投稿ボタン紙飛行機マークのCSS */
 .Upload {
     background: #fff;
     height: 95px;
-    margin-top: 30px;
+    margin-top: 90px;
+
 
 }
 
 .send-btn {
     background: #fff;
     border: none;
+    margin-right: 50px;
 }
 
 /* 検索後の紙飛行機投稿マークのCSS */
@@ -288,6 +291,7 @@ a:hover {
     justify-content: flex-start;
     margin-bottom: 40px;
     margin-left: 400px;
+    font-size: 20px;
     /* border: solid */
 }
 
@@ -335,8 +339,8 @@ input[type="file"] {
 }
 
 /* 検索機能アイコンのサイズ */
-.icon-space {
-    height: 35px;
+.icon-spaces {
+    height: 50px;
 }
 
 /* 自分のプロフィールのアイコンサイズ */
@@ -372,8 +376,7 @@ input[type="file"] {
 
 /* ユーザー検索ページに遷移するためのボタンCSS */
 .btn_bases {
-    margin-right: 30px;
-    margin-top: 30px;
+    margin: 0 auto;
     background: #0066CC;
     width: 120px;
     height: auto;
@@ -392,7 +395,7 @@ input[type="file"] {
     padding: 10px 20px;
     border-radius: 8px;
     color: #fff;
-    margin-left: 100px;
+    margin-left: 110px;
     transition: 0.3s;
 }
 
@@ -418,7 +421,8 @@ input[type="file"] {
 
 
 .side-search_btn {
-    margin-top: 50px;
+    margin: 0 auto;
+    margin-top: 1px;
     width: 279px;
     border-top: solid 1px gray;
 }
@@ -433,25 +437,24 @@ input[type="file"] {
 
 /* インデックスの投稿アイコン */
 .PostIcon {
-    margin-top: 35px;
-    /* left: px; */
     height: 50px;
-
-
+    margin-left: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
 }
 
 /* IndexのユーザーアイコンのCSS */
 .MyIcon {
-    margin-top: 125px;
-    margin-left: 120px;
-    height: 45px;
+    margin-top: 20px;
+    margin-left: 140px;
+    height: 50px;
 
     display: flex;
 }
 
 /* フォローリストのユーザーアイコンのCSS */
 .FollowIcon {
-    margin: 20px;
+    /* margin: 40px; */
     height: 40px;
 
 }
@@ -664,11 +667,11 @@ input[type="file"] {
 
 /* プロフィール更新ボタン */
 .btn-update {
-    margin-left: 570px;
+    margin-left: 350px;
 }
 
 .btn-update_color {
-    background: red;
+    background: #DC143C;
     padding: 13px 80px;
     font-size: 15px;
     border-radius: 15px;
@@ -688,6 +691,7 @@ input[type="file"] {
     /* 横線のスタイルを設定 */
     padding: 10px;
     /* セル内の余白を追加（任意） */
+    margin-top: 5px;
 }
 
 /* 最初のセルだけ左側にボーダーを追加するスタイル */
@@ -696,15 +700,174 @@ input[type="file"] {
     /* 最初のセルに左側のボーダーを追加 */
 }
 
+
+
+
 /* indexの投稿内容直下のグレーのライン */
 .separator-line {
-    border-top: 9px solid #C0C0C0;
+    border-top: 7.5px solid #DDDDDD;
     /* グレーの太い線 */
-    margin-top: 20px;
+    margin-top: 0.5%;
     /* 上部の余白（任意） */
+}
+
+/* INDEXの投稿内容入力してくださいの文字部分 */
+textarea {
+    resize: none;
+    height: 15px;
+    opacity: 0.2;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-list-item {
+    margin-bottom: 20px;
+    /* 適切な間隔を設定してください */
+}
+
+/* 既存のスタイル */
+.post-form {
+    margin-bottom: 20px;
+    /* 適切な間隔を設定してください */
+    position: relative;
+}
+
+.post-form::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 8px;
+    /* 線の太さを調整 */
+    background-color: #DDDDDD;
+    /* 線の色を調整 */
+    position: absolute;
+    bottom: -10px;
+    /* 適切な位置を設定してください */
+    left: 0;
+    margin-top: 80px;
+}
+
+
+
+
+
+/* .list-title {
+    font-size: 24px; */
+/* 任意のフォントサイズ */
+/* margin-left: 70px;
+    margin-top: 35px;
+} */
+
+/* .icon-space {
+    margin-right: 20px;
+    height: 80px;
+    display: flex;
+    text-align: center; */
+/* アイコンと他の要素の間の余白を調整 */
+
+/* フォローリスト画面のタイトル */
+.follow-list {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 82px;
 
 }
 
-textarea {
-    resize: none;
+.list-title {
+    margin-right: 30px;
+    /* タイトルとアイコンの間隔を調整 */
+}
+
+.icon-container {
+    display: flex;
+    font-size: 10px;
+
+
+}
+
+.icon-space {
+    margin-right: 10px;
+    /* アイコンとアイコンの間隔を調整 */
+
+}
+
+
+
+
+
+.line-wrapper {
+    margin: 20px 0;
+    /* 上下の余白を調整 */
+}
+
+.bold.line {
+    display: block;
+    width: 80%;
+    height: 7px;
+    /* 線の太さを調整 */
+    background-color: #DDDDDD;
+    /* 線の色を指定 */
+}
+
+ul {
+    list-style-type: none;
+    /* リストのマーカーを非表示にする */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    /* リストアイテム間の余白を調整 */
+}
+
+.FollowIcon {
+    width: 50px;
+    /* アイコンの幅を指定 */
+    height: 50px;
+    /* アイコンの高さを指定 */
+    border-radius: 50%;
+    /* アイコンを丸くする */
+    /* margin-right: 10px; */
+    /* アイコンと他の要素の間の余白を調整 */
+    display: flex;
+    align-items: center;
+}
+
+.thin-wrapper {
+    margin: 10px 0;
+    /* 上下の余白を調整 */
+}
+
+.thin {
+    display: block;
+    width: 80%;
+    height: 1px;
+    /* 線の太さを調整 */
+    background-color: black;
+    /* 線の色を指定 */
+}
+
+/* フォローリストのリストのアイコンのCSS */
+.icon-size {
+    height: 50px;
+
+
+}
+
+/* プロフィール更新の編集の文章を入力する枠 */
+.items-input {
+    font-size: 20px;
+    width: 300px;
+    height: 30px;
+    background-color: #EEEEEE;
 }

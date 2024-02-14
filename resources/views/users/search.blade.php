@@ -18,7 +18,7 @@
        <div>
             <tr>
                 <td>
-                    <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" alt="icon" class="icon-space">
+                    <img src="{{ asset('storage/user-images/'. $user->images) }}" alt="icon" class="icon-spaces">
                 </td>
                 <td>
                     {{ $user->username }}
