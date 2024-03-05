@@ -40,14 +40,27 @@
         </thead>
    <tbody>
 @foreach ($lists as $list)
-    <tr class="post-row">
-        <!-- ユーザーのアイコンを表示 -->
+    <!-- <tr class="post-row">
+        ユーザーのアイコンを表示
         <td class="post-cell">
             <img class="MyIcon" src="{{ asset('storage/user-images/'. $list->user->images) }}" alt="{{ $list->user->username }}のアイコン">
         </td>
         <td class="post-cell">{{ $list->user->username }}</td>
         <td class="post-cell">{{ $list->post }}</td>
-        <td class="post-cell">{{ $list->created_at }}</td>
+        <td class="post-cell">{{ $list->created_at }}</td> -->
+   <div class="post-row">
+    <!-- ユーザーのアイコンを表示 -->
+    <div class="post-cell">
+        <img class="MyIcon" src="{{ asset('storage/user-images/'. $list->user->images) }}" alt="{{ $list->user->username }}のアイコン">
+    </div>
+    <div class="post-group">
+        <div class="post-cell">{{ $list->user->username }}</div>
+        <div class="post-cell">{{ $list->post }}</div>
+    </div>
+     <!-- created_atを別のグループにする -->
+    <div class="post-cell">{{ $list->created_at }}</div>
+</div>
+<div class="post-separator"></div>
 
         <!-- 更新 -->
         @if(Auth::id() == $list->user_id)
@@ -67,8 +80,6 @@
 </table>
 
 <!-- モーダルの中身 -->
-
-
 <div class="modal js-modal">
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content">

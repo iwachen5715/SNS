@@ -60,7 +60,7 @@
 
 
     <div class="side-right">
-        <p class="btn btn_base"><a href="{{ asset('/follow-List') }}">フォローリスト</a></p>
+        <p class="btn btn_base new-btn-class"><a href="{{ asset('/follow-List') }}">フォローリスト</a></p>
 </div>
 
 <div class="side-flex">
@@ -68,12 +68,12 @@
     <p>{{ Auth::user()->followers()->count() }}人</p>
 </div>
 <div class="side-right">
-    <p class="btn btn_base"><a href="{{ asset('/follower-List') }}">フォロワーリスト</a></p>
+    <p class="btn btn_base new-btn-class"><a href="{{ asset('/follower-List') }}">フォロワーリスト</a></p>
   </div>
 </div>
 
 <div class="side-search_btn">
-    <p class="btn btn_bases"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
+    <p class="btn btn_base search-btn-class"><a href="{{ asset('/search') }}">ユーザー検索</a></p>
 </div>
 
 </div>

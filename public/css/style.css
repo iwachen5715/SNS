@@ -24,6 +24,7 @@ header {
     border-left: 1px solid #666;
 
 
+
 }
 
 #head {
@@ -162,10 +163,8 @@ a:hover {
 
 .icon {
     display: inline-block;
-    background-color: darkblue;
-    color: #fff;
     text-align: center;
-    line-height: 25px;
+    line-height: 40px;
     padding: 22px 35px;
     mix-blend-mode: differnce;
 
@@ -177,6 +176,7 @@ a:hover {
 }
 
 .home {
+    margin-top: 5%;
     display: inline-block;
     padding: 22px 35px;
 
@@ -260,6 +260,8 @@ a:hover {
     height: 35px;
     top: 10px;
     margin-left: 50px;
+    display: flex;
+    align-items: center;
 
 }
 
@@ -284,28 +286,24 @@ a:hover {
     top: 60px;
 }
 
-/* プロフィール編集更新の入力フォーム */
-.form-group {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 40px;
-    margin-left: 400px;
-    font-size: 20px;
-    /* border: solid */
+
+
+.profile_icon {
+    margin-top: 70px;
 }
 
 /* プロフィール編集ファイルを選択ボタン */
 
 #app {
     display: inline-block;
-    width: 60%;
+    width: 83%;
     margin: auto;
     padding: 40px 0;
     line-height: 1.5;
     border: 1px solid #999;
     background-color: #f2f2f2;
     text-align: center;
+    margin-left: 80px;
 }
 
 .file-label {
@@ -341,13 +339,16 @@ input[type="file"] {
 /* 検索機能アイコンのサイズ */
 .icon-spaces {
     height: 50px;
+    margin-top: 120px;
+    margin-left: 50px;
 }
 
 /* 自分のプロフィールのアイコンサイズ */
 .icon-image {
     height: 45px;
     top: 120px;
-    margin-left: 260px;
+    margin-left: 170px;
+    margin-top: 30px;
 
 
 }
@@ -390,13 +391,22 @@ input[type="file"] {
 }
 
 .btn {
-    display: inline-block;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 8px;
     color: #fff;
-    margin-left: 110px;
     transition: 0.3s;
+}
+
+/* loginbladeのフォローリストフォロワーリストボタンのCSS */
+.new-btn-class {
+    margin-left: 40%;
+}
+
+.search-btn-class {
+    margin-top: 10%;
+    margin-left: 25%;
+
 }
 
 .side-flex {
@@ -457,6 +467,7 @@ input[type="file"] {
     /* margin: 40px; */
     height: 40px;
 
+
 }
 
 /* フォロワーリストのユーザーアイコンのCSS */
@@ -510,7 +521,8 @@ input[type="file"] {
     height: auto;
     text-align: center;
     color: #fff;
-    margin-right: 10px;
+    margin-left: 400px;
+    margin-top: 40px;
 }
 
 
@@ -547,7 +559,10 @@ input[type="file"] {
 
 .post-row {
     top: 100px;
-    border-bottom: 1px solid #ccc;
+    display: flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
 
     /* 好みの線のスタイルや色に変更できます */
 }
@@ -652,7 +667,7 @@ input[type="file"] {
 
 .post-block-profile {
     padding: 30px 30px 30px 215px;
-    width: 100%;
+    width: 78.8%;
     text-decoration: none;
     /* border-bottom:3px solid #DCDCDC; */
     border-bottom: 1px solid #888;
@@ -673,35 +688,53 @@ input[type="file"] {
 .btn-update_color {
     background: #DC143C;
     padding: 13px 80px;
-    font-size: 15px;
-    border-radius: 15px;
-    transition: 0.3s;
-    cursor: pointer;
+    margin-right: 600px;
+
 
 }
+
+
 
 .btn-update_color:hover {
     opacity: .5;
     background: #00aaa7;
 }
 
+.post-group {
+    display: flex;
+    text-align: center;
+}
+
 /* indexのユーザー投稿を区切るボーダー線 */
-.post-row .post-cell {
-    border-bottom: 1px solid black;
+.post-row {
     /* 横線のスタイルを設定 */
     padding: 10px;
     /* セル内の余白を追加（任意） */
-    margin-top: 5px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 80%;
+
 }
 
-/* 最初のセルだけ左側にボーダーを追加するスタイル */
-.post-row .post-cell:first-child {
-    border-left: 1px solid black;
-    /* 最初のセルに左側のボーダーを追加 */
+.post-cell {
+    /* border-bottom: 1px solid black; */
+    /* 横線のスタイルを設定 */
+    padding: 10px;
+    /* セル内の余白を追加（任意） */
+
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
 }
 
-
-
+/* 投稿を区切る線 */
+.post-separator {
+    border-bottom: 1px solid black;
+    /* 区切る線のスタイル */
+    margin-bottom: 10px;
+    /* 投稿の間隔を調整 */
+}
 
 /* indexの投稿内容直下のグレーのライン */
 .separator-line {
@@ -733,26 +766,11 @@ textarea {
 }
 
 /* 既存のスタイル */
-.post-form {
-    margin-bottom: 20px;
-    /* 適切な間隔を設定してください */
-    position: relative;
-}
+/* .post-form { */
 
-.post-form::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 8px;
-    /* 線の太さを調整 */
-    background-color: #DDDDDD;
-    /* 線の色を調整 */
-    position: absolute;
-    bottom: -10px;
-    /* 適切な位置を設定してください */
-    left: 0;
-    margin-top: 80px;
-}
+/* 適切な間隔を設定してください */
+/* position: relative;
+} */
 
 
 
@@ -796,10 +814,14 @@ textarea {
 }
 
 .icon-space {
-    margin-right: 10px;
+    margin-right: 15px;
     /* アイコンとアイコンの間隔を調整 */
 
 }
+
+
+
+
 
 
 
@@ -839,8 +861,9 @@ li {
     /* アイコンを丸くする */
     /* margin-right: 10px; */
     /* アイコンと他の要素の間の余白を調整 */
-    display: flex;
     align-items: center;
+    margin-top: 40px;
+
 }
 
 .thin-wrapper {
@@ -866,8 +889,47 @@ li {
 
 /* プロフィール更新の編集の文章を入力する枠 */
 .items-input {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+
+/* プロフィール編集更新の入力フォーム */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-left: 240px;
+    margin-right: 170px;
+}
+
+
+.form-group p {
+    width: 20%;
     font-size: 20px;
-    width: 300px;
-    height: 30px;
-    background-color: #EEEEEE;
+}
+
+.items-input {
+    padding: 0.35em;
+    /* 入力欄の余白を設定 */
+    border: 1px solid #999;
+    /* 入力欄の境界線を設定 */
+
+    flex-grow: 1;
+    /* 入力欄を均等に伸ばす */
+    width: 50%;
+    background: #f2f2f2;
+    box-sizing: border-box;
+    padding: 0.35em;
+    border: 1px solid #999;
+    font-size: 140%;
+    margin-left: 60px;
+}
+
+
+
+.login-form {
+    min-height: 100%;
 }

@@ -1,4 +1,5 @@
 @extends('layouts.login')
+
 @section('content')
 
 <!-- プロフィール編集画面 -->
@@ -41,7 +42,7 @@
 
 <div class="form-group">
     <p>bio</p>
-    <input type="text" class="items-input" name="bio" value="{{ auth()->user()->bio }}">
+    <input type="text" class="items-input"  name="bio" value="{{ auth()->user()->bio }}">
 </div>
 
 <div class="form-group">

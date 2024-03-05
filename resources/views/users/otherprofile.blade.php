@@ -48,6 +48,7 @@
       <div class="unfollow_btn">
         <button type="submit" class="btn_profile unfollow">
           <a href="/profile/{{ $user->id }}/unfollow">フォロー解除</a>
+
         </button>
       </div>
       @else

@@ -13,8 +13,9 @@
         </div>
     @endif
 
+     <div class="line-wrapper"><span class="bold line"></span></div>
+
     @foreach ($users as $user)
-        <p>{{ $user->username }}</p>
        <div>
             <tr>
                 <td>
