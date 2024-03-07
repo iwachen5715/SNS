@@ -13,7 +13,7 @@
         </div>
     @endif
 
-     <div class="line-wrapper"><span class="bold line"></span></div>
+     <div class="line search-wrapper"><span class="bold search-line"></span></div>
 
     @foreach ($users as $user)
        <div>

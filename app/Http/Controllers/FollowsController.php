@@ -75,7 +75,8 @@ class FollowsController extends Controller
         ->get();
 
     // フォロワーのアイコンデータを取得
-    $follow_icons = User::whereIn('id', $followed_id)->get();
+    $follow_icons = User::whereIn('id', $followed_id)
+    ->get();
 
     // ビューにデータを渡して表示
     return view('follows.followerList', compact('posts', 'follow_icons'));

@@ -40,14 +40,6 @@
         </thead>
    <tbody>
 @foreach ($lists as $list)
-    <!-- <tr class="post-row">
-        ユーザーのアイコンを表示
-        <td class="post-cell">
-            <img class="MyIcon" src="{{ asset('storage/user-images/'. $list->user->images) }}" alt="{{ $list->user->username }}のアイコン">
-        </td>
-        <td class="post-cell">{{ $list->user->username }}</td>
-        <td class="post-cell">{{ $list->post }}</td>
-        <td class="post-cell">{{ $list->created_at }}</td> -->
    <div class="post-row">
     <!-- ユーザーのアイコンを表示 -->
     <div class="post-cell">
@@ -60,17 +52,30 @@
      <!-- created_atを別のグループにする -->
     <div class="post-cell">{{ $list->created_at }}</div>
 </div>
+
 <div class="post-separator"></div>
 
         <!-- 更新 -->
         @if(Auth::id() == $list->user_id)
-            <td class="post-cell"><a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img class="Update" src="./images/edit.png" alt="編集" /></a></td>
+            <div class="post-cell">
+          <div class="update-btn">
+        <a href="" post="{{ $list->post }}" post_id="{{ $list->id }}">
+            <img class="Update" src="./images/edit.png" alt="編集" />
+        </a>
+    </div>
+</div>
         @else
             <td class="post-cell"></td>
         @endif
         <!-- 削除 -->
         @if(Auth::id() == $list->user_id)
-            <td class="post-cell"><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img class="Trash" src="./images/trash.png" alt="削除" /></a></td>
+        <div class="post-cell">
+        <div class="delete-btn">
+        <a href="/post/{{ $list->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+            <img class="Trash" src="./images/trash.png" alt="削除" />
+        </a>
+    </div>
+</div>
         @else
             <td class="post-cell"></td>
         @endif

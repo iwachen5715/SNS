@@ -60,6 +60,8 @@
    <div class="btn-update">
     <p class="btn btn-update_color">更新</p>
   </div>
+  {!! Form::close() !!}
+
 
 
 <!--バリデーションエラーメッセージ-->

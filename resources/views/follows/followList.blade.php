@@ -19,12 +19,19 @@
     <ul>
         @foreach($posts as $post)
             <li>
+            <div class="post-container">
                 <a href="users/{{ $post->user->id }}/profile" class="icon-space">
+                <div class="post-content">
                     <img class="FollowIcon" src="{{ asset('storage/user-images/'. $post->user->images) }}" alt="icon">
                 </a>
+         <div class="search-group">
+               <div class="post-content">
+                {{ $post->user->username }}</div>
+               <div class="post-content">{{ $post->post }}</div>
+         </div>
+               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i:s') }}</div>
+            </div>
 
-                <p>名前：{{ $post->user->username }}</p>
-                <p>投稿内容：{{ $post->post }}</p>
                 <div class="thin-wrapper"><span class="line thin"></span></div>
             </li>
         @endforeach

@@ -22,7 +22,9 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #666;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 
 }
@@ -181,6 +183,7 @@ a:hover {
     padding: 22px 35px;
 
 
+
 }
 
 
@@ -303,7 +306,7 @@ a:hover {
     border: 1px solid #999;
     background-color: #f2f2f2;
     text-align: center;
-    margin-left: 80px;
+    margin-left: 95px;
 }
 
 .file-label {
@@ -455,20 +458,12 @@ input[type="file"] {
 
 /* IndexのユーザーアイコンのCSS */
 .MyIcon {
-    margin-top: 20px;
     margin-left: 140px;
     height: 50px;
 
     display: flex;
 }
 
-/* フォローリストのユーザーアイコンのCSS */
-.FollowIcon {
-    /* margin: 40px; */
-    height: 40px;
-
-
-}
 
 /* フォロワーリストのユーザーアイコンのCSS */
 .FollowerIcon {
@@ -492,16 +487,14 @@ input[type="file"] {
 
 
 
+.search-wrapper {
+    display: block;
+    width: 80%;
+    height: 7px;
+    background-color: #DDDDDD;
+    margin-top: 65px;
+}
 
-
-/* .line {
-    border-bottom: 1px
-
-} */
-
-/* .line-wrapper {
-    border-bottom: 1px;
-} */
 
 /* ユーザー検索の際のフォローボタンのCSS*/
 .btn-primary {
@@ -548,24 +541,7 @@ input[type="file"] {
     /* 中央揃えする場合 */
 }
 
-.line {
-    display: block;
-    width: 80%;
-    height: 1px;
-    /* 線の太さを調整 */
-    background-color: #000;
-    /* 線の色を調整 */
-}
 
-.post-row {
-    top: 100px;
-    display: flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-
-    /* 好みの線のスタイルや色に変更できます */
-}
 
 /* .side-bar {
     border-left: 1px solid #000;
@@ -580,10 +556,12 @@ input[type="file"] {
 
 
 .search {
-    margin-top: 40px;
+    margin-top: 43px;
     margin-left: 70px;
-    height: 40px;
-    width: 300px;
+    height: 45px;
+    width: 310px;
+    border: 2px solid #999;
+    font-size: 20px;
 }
 
 
@@ -675,8 +653,10 @@ input[type="file"] {
 }
 
 .gray-line {
-    border-bottom: 5px solid #C0C0C0;
-
+    display: block;
+    width: 100%;
+    height: 9px;
+    background-color: #DDDDDD;
 }
 
 
@@ -702,20 +682,13 @@ input[type="file"] {
 
 .post-group {
     display: flex;
-    text-align: center;
+    flex-flow: column;
+    width: 50%;
 }
 
-/* indexのユーザー投稿を区切るボーダー線 */
-.post-row {
-    /* 横線のスタイルを設定 */
-    padding: 10px;
-    /* セル内の余白を追加（任意） */
-    margin: auto;
-    display: flex;
-    align-items: center;
-    width: 80%;
 
-}
+
+
 
 .post-cell {
     /* border-bottom: 1px solid black; */
@@ -740,8 +713,6 @@ input[type="file"] {
 .separator-line {
     border-top: 7.5px solid #DDDDDD;
     /* グレーの太い線 */
-    margin-top: 0.5%;
-    /* 上部の余白（任意） */
 }
 
 /* INDEXの投稿内容入力してくださいの文字部分 */
@@ -813,11 +784,7 @@ textarea {
 
 }
 
-.icon-space {
-    margin-right: 15px;
-    /* アイコンとアイコンの間隔を調整 */
 
-}
 
 
 
@@ -835,7 +802,7 @@ textarea {
 .bold.line {
     display: block;
     width: 80%;
-    height: 7px;
+    height: 9px;
     /* 線の太さを調整 */
     background-color: #DDDDDD;
     /* 線の色を指定 */
@@ -852,19 +819,6 @@ li {
     /* リストアイテム間の余白を調整 */
 }
 
-.FollowIcon {
-    width: 50px;
-    /* アイコンの幅を指定 */
-    height: 50px;
-    /* アイコンの高さを指定 */
-    border-radius: 50%;
-    /* アイコンを丸くする */
-    /* margin-right: 10px; */
-    /* アイコンと他の要素の間の余白を調整 */
-    align-items: center;
-    margin-top: 40px;
-
-}
 
 .thin-wrapper {
     margin: 10px 0;
@@ -887,13 +841,6 @@ li {
 
 }
 
-/* プロフィール更新の編集の文章を入力する枠 */
-.items-input {
-    display: flex;
-    align-items: center;
-    width: 50%;
-}
-
 
 /* プロフィール編集更新の入力フォーム */
 .form-group {
@@ -907,21 +854,23 @@ li {
 
 
 .form-group p {
-    width: 20%;
+    display: inline-block;
+    width: 25%;
     font-size: 20px;
 }
 
+/* プロフィール更新の編集の文章を入力する枠 */
 .items-input {
-    padding: 0.35em;
+    display: inline-block;
+    width: 50%;
     /* 入力欄の余白を設定 */
     border: 1px solid #999;
     /* 入力欄の境界線を設定 */
 
     flex-grow: 1;
     /* 入力欄を均等に伸ばす */
-    width: 50%;
+
     background: #f2f2f2;
-    box-sizing: border-box;
     padding: 0.35em;
     border: 1px solid #999;
     font-size: 140%;
@@ -932,4 +881,132 @@ li {
 
 .login-form {
     min-height: 100%;
+}
+
+
+/* ----------フォローリストエリア------------ */
+
+/* フォローリストのユーザーアイコンのCSS */
+.FollowIcon {
+    /* アイコンの幅を指定 */
+    width: 50px;
+    /* アイコンの高さを指定 */
+    height: 50px;
+    margin-left: 100px;
+
+}
+
+
+.post-container {
+    display: inline-block;
+    justify-content: space-between;
+    width: 100%;
+    height: 5px;
+
+}
+
+
+
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 60px;
+}
+
+.post-content {
+    padding: 10px;
+    /* セル内の余白を追加（任意） */
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.icon-space {
+    margin-right: 10px;
+}
+
+
+
+/* -----------indexエリア------------------ */
+.post-cell {
+    position: relative;
+}
+
+.post-row {
+    padding: 10px;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    position: relative;
+
+
+    /* 好みの線のスタイルや色に変更できます */
+}
+
+.delete-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.update-btn {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    z-index: 2;
+    /* 余白を設定 */
+}
+
+/* 削除ボタンのタグ */
+.Trash {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* ホバーしたら、反転 */
+.Trash:hover {
+    background-image: url('images/trash-h.png');
+}
+
+
+/* つぶやきの編集ボタンのCSS */
+.Update {
+    height: 35px;
+    top: 10px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+/* 投稿ボタン紙飛行機マークのCSS */
+.Upload {
+    background: #fff;
+    height: 95px;
+    margin-top: 90px;
+
+
+}
+
+.send-btn {
+    background: #fff;
+    border: none;
+    margin-right: 50px;
+}
+
+/* 検索後の紙飛行機投稿マークのCSS */
+.Botton {
+    height: 60px;
+    top: 60px;
+}
+
+
+
+.profile_icon {
+    margin-top: 70px;
 }
