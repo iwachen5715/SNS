@@ -64,14 +64,14 @@ class FollowsController extends Controller
     //フォロワーリストの記述：フォローしているユーザーの投稿表示
     public function followerList(){
     // フォロワーのIDを取得
-    $followed_id = Auth::user()->followers()->pluck('followed_id');
+    $followed_id = Auth::user()->followers()->pluck('following_id');
     // ログインユーザーのIDを取得
     $user_id = Auth::id();
 
     // フォロワーの投稿データを取得
     $posts = Post::with('user')
         ->whereIn('user_id', $followed_id)
-        ->where('user_id', '!=', $user_id)
+        ->where('user_id', '!=', Auth::id())
         ->get();
 
     // フォロワーのアイコンデータを取得

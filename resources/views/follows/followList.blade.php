@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="follow-list">
-        <h2 class="list-title">Follow List</h2>
+        <h2 class="list-title">フォローリスト</h2>
         <div class="icon-container">
             @foreach($follow_icons as $follow_icon)
                 <div class="icon-space">

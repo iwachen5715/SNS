@@ -12,16 +12,18 @@ header {
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 
 #container {
     flex: 0 0 80%;
+    border-right: 1px solid #666;
+    ;
 }
 
 #side-bar {
     flex: 0 0 19%;
-    border-left: 1px solid #666;
+    /* border-left: 1px solid #666; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -45,6 +47,10 @@ header {
     justify-content:
         space-between;
     height: 90px;
+}
+
+#profile.container {
+    display: flex;
 }
 
 /* アコーディオンメニュー */
@@ -156,35 +162,32 @@ a:hover {
 
 .Item {
     /* margin-left: 40px; */
+    /* object-fit: cover;
+    border-radius: 45%;
     margin: auto 23px;
     top: 20px;
     height: 45px;
-
-
+     */
+    margin-left: 40px;
+    top: 18px;
+    margin: auto 23px;
+    width: 55px;
+    /* 画像の幅 */
+    height: 55px;
+    /* 画像の高さ */
+    object-fit: cover;
+    /* 画像を枠内にフィットさせる */
+    border-radius: 50%;
+    /* 画像を円形にするための値 */
+    overflow: hidden;
+    /* 画像が枠からはみ出さないようにする */
 }
 
-.icon {
-    display: inline-block;
-    text-align: center;
-    line-height: 40px;
-    padding: 22px 35px;
-    mix-blend-mode: differnce;
-
-}
-
-.center {
-    display: inline-block;
-    padding: 22px 35px;
-}
-
-.home {
-    margin-top: 5%;
-    display: inline-block;
-    padding: 22px 35px;
 
 
 
-}
+
+
 
 
 
@@ -254,19 +257,35 @@ a:hover {
 
 /* ホバーしたら、反転 */
 .Trash:hover {
-    background-image: url('images/trash-h.png');
+    filter: invert(100%);
+}
+
+.home {
+    margin-top: 5%;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 50px;
+
 }
 
 
-/* つぶやきの編集ボタンのCSS */
-.Update {
-    height: 35px;
-    top: 10px;
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
+
+.icon {
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    padding: 20px 50px;
+    mix-blend-mode: differnce;
 
 }
+
+.center {
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 20px 50px;
+}
+
+
 
 /* 投稿ボタン紙飛行機マークのCSS */
 .Upload {
@@ -340,11 +359,6 @@ input[type="file"] {
 }
 
 /* 検索機能アイコンのサイズ */
-.icon-spaces {
-    height: 50px;
-    margin-top: 120px;
-    margin-left: 50px;
-}
 
 /* 自分のプロフィールのアイコンサイズ */
 .icon-image {
@@ -496,50 +510,8 @@ input[type="file"] {
 }
 
 
-/* ユーザー検索の際のフォローボタンのCSS*/
-.btn-primary {
-    background: #0099FF;
-    width: 98px;
-    height: auto;
-    text-align: center;
-    color: #fff;
-    margin-right: 10px;
-}
 
 
-/* ユーザー検索の際のフォロー解除ボタンのCSS */
-.btn-danger {
-    background: #FF0000;
-    width: 98px;
-    height: auto;
-    text-align: center;
-    color: #fff;
-    margin-left: 400px;
-    margin-top: 40px;
-}
-
-
-
-/* ユーザー検索の際のフォローボタンのCSSの文字色*/
-.btn-primary a {
-    color: #fff;
-    font-weight: lighter;
-
-}
-
-/* ユーザー検索の際のフォロー解除ボタンのCSSの文字色 */
-.btn-danger a {
-    color: #fff;
-    font-weight: lighter;
-}
-
-
-.thin-wrapper {
-    width: 50px;
-    /* 例として50pxに設定（必要に応じて調整） */
-    margin: 0 auto;
-    /* 中央揃えする場合 */
-}
 
 
 
@@ -573,7 +545,7 @@ input[type="file"] {
     justify-content: start;
     padding-top: 40px;
     padding-bottom: 30px;
-    padding-left: 200px;
+    padding-left: 70px;
 }
 
 
@@ -637,14 +609,33 @@ input[type="file"] {
     margin-top: 48px;
     margin-right: 20px;
     transition: 0.3s;
+    border: none;
+    background-color: #FF0033;
+
 }
+
+.btn_profile a {
+    color: #fff;
+}
+
+.btn_profile.follow {
+    background-color: #0099FF;
+}
+
+.btn_profile.unfollow {
+    background-color: #ec3e3e;
+
+}
+
+
+
 
 .btn_profile:hover {
     opacity: .5;
 }
 
 .post-block-profile {
-    padding: 30px 30px 30px 215px;
+    padding: 0px 30px 30px 215px;
     width: 78.8%;
     text-decoration: none;
     /* border-bottom:3px solid #DCDCDC; */
@@ -653,6 +644,7 @@ input[type="file"] {
 }
 
 .gray-line {
+    margin-top: 40px;
     display: block;
     width: 100%;
     height: 9px;
@@ -667,8 +659,10 @@ input[type="file"] {
 
 .btn-update_color {
     background: #DC143C;
-    padding: 13px 80px;
+    padding: 5px 60px;
     margin-right: 600px;
+    border: none;
+    font-size: 20px;
 
 
 }
@@ -699,6 +693,7 @@ input[type="file"] {
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
+
 }
 
 /* 投稿を区切る線 */
@@ -718,10 +713,11 @@ input[type="file"] {
 /* INDEXの投稿内容入力してくださいの文字部分 */
 textarea {
     resize: none;
-    height: 15px;
+    height: 100px;
     opacity: 0.2;
     margin-top: 10px;
     font-family: sans-serif;
+    width: 80%;
 }
 
 
@@ -816,7 +812,7 @@ ul {
 
 li {
     margin-bottom: 20px;
-    /* リストアイテム間の余白を調整 */
+    /* リストアイテム間の余白を調整
 }
 
 
@@ -873,7 +869,7 @@ li {
     background: #f2f2f2;
     padding: 0.35em;
     border: 1px solid #999;
-    font-size: 140%;
+    font-size: 120%;
     margin-left: 60px;
 }
 
@@ -917,7 +913,6 @@ li {
 
 .post-content {
     padding: 10px;
-    /* セル内の余白を追加（任意） */
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
@@ -945,18 +940,10 @@ li {
     /* 好みの線のスタイルや色に変更できます */
 }
 
-.delete-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
 
-}
 
 .update-btn {
-    position: absolute;
-    bottom: 0;
-    right: 30px;
-    z-index: 2;
+
     /* 余白を設定 */
 }
 
@@ -966,6 +953,11 @@ li {
     height: auto;
     cursor: pointer;
     transition: .3s;
+    margin-bottom: 22px;
+    margin-right: 60px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /* ホバーしたら、反転 */
@@ -977,10 +969,13 @@ li {
 /* つぶやきの編集ボタンのCSS */
 .Update {
     height: 35px;
-    top: 10px;
-    margin-left: 50px;
+    margin-right: 80px;
     display: flex;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    z-index: 2;
 
 }
 
@@ -1009,4 +1004,151 @@ li {
 
 .profile_icon {
     margin-top: 70px;
+}
+
+
+/* search.blade.phpゾーン */
+
+
+/* 検索 */
+
+.user-row {
+    display: flex;
+    justify-content: space-evenly;
+    top: 90px;
+    padding: 20px;
+    margin-right: 200px;
+    margin-top: 20px;
+    margin-left: 350px;
+}
+
+.icon-spaces {
+    height: 50px;
+}
+
+/* ユーザー検索の際のフォローボタンのCSS*/
+.btn-primary {
+    background: #0099FF;
+    width: 98px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+
+/* ユーザー検索の際のフォロー解除ボタンのCSS */
+.btn-danger {
+    background: #ec3e3e;
+    width: 98px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+
+}
+
+
+
+/* ユーザー検索の際のフォローボタンのCSSの文字色*/
+.btn-primary a {
+    color: #fff;
+    font-weight: lighter;
+
+}
+
+/* ユーザー検索の際のフォロー解除ボタンのCSSの文字色 */
+.btn-danger a {
+    color: #fff;
+    font-weight: lighter;
+}
+
+
+.thin-wrapper {
+    width: 50px;
+    /* 例として50pxに設定（必要に応じて調整） */
+    margin: 0 auto;
+    /* 中央揃えする場合 */
+}
+
+.search-top-flex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-left: 70px;
+    margin-top: 25px;
+}
+
+.separator-line {
+    border-top: 7.5px solid #DDDDDD;
+}
+
+.keyword-box {
+    margin-top: 30px;
+    margin-right: 70px;
+    margin-left: 270px;
+}
+
+.keyword {
+    font-size: 30px;
+    margin-left: -70px;
+}
+
+.search-form-001 {
+    padding-top: 30px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    /* justify-content:flex-start; */
+}
+
+.form {
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.search_btn {
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.search_btn:hover {
+    opacity: 0.7;
+}
+
+.grays-line {
+    border-top: 9px solid #DDDDDD;
+    margin-top: 50px;
+}
+
+
+.user-row span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+
+/* 他ユーザーのページ */
+.top-img {
+    height: 50px;
+}
+
+
+.error-message-profile {
+    margin-top: 20px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+
+.flex-container {
+    display: flex;
 }

@@ -2,78 +2,68 @@
 
 @section('content')
 
+<!-- バリデーションエラーメッセージ -->
+@if($errors->any())
+<div class="edit_error">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li class="error-message-profile">{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <!-- プロフィール編集画面 -->
 
-<img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
-
-
-<!-- プロフィールへのリンク -->
-<!-- <a href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">マイプロフィール</a> -->
-
-<a href="{{ route('profile.show', ['id' => $user->id]) }}"></a>
-
-
-<!-- 適切なURLを入力してください -->
-<!-- {!! Form::open(['url' => '/profile.edit', 'enctype' => 'multipart/form-data']) !!}
-{!! Form::open(['url' => '/profile.update', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!} -->
-{!! Form::open(['route' => 'profile.update', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-<!-- enctype 属性: フォームデータがファイルを含む場合、enctype 属性を multipart/form-data に設定する必要があります。これにより、ファイルアップロードなどのバイナリデータをサーバーに送信できる -->
+<div class="flex-container">
+    <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
+    {!! Form::open(['route' => 'profile.update', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+</div>
 
 
 <div class="form-group">
-   <p>user name</p>
+   <p>ユーザー名</p>
    <input type="text" class="items-input" name="username" value="{{ auth()->user()->username}}">
 </div>
 
 <div class="form-group">
-   <p>mail adress</p>
+   <p>メールアドレス</p>
    <input type="email" class="items-input" name="mail" value="{{ auth()->user()->mail }}">
 </div>
 
 <div class="form-group">
-    <p>password</p>
+    <p>パスワード</p>
     <input type="password" class="items-input" name="password">
 </div>
 
 <div class="form-group">
-    <p>password confirm</p>
+    <p>パスワード確認</p>
     <input type="password" class="items-input" name="password_confirmation">
 </div>
 
 <div class="form-group">
-    <p>bio</p>
+    <p>自己紹介</p>
     <input type="text" class="items-input"  name="bio" value="{{ auth()->user()->bio }}">
 </div>
 
 <div class="form-group">
-    <p>icon image</p>
+    <p>アイコン画像</p>
         <div id="app">
           <label class="file-label">
-            <input type="file" name="icon_image">ファイルを選択
+            <input type="file" name="images">ファイルを選択
           </label>
         </div>
       </div>
 
 
-    <!-- {{ Form::input('hidden', 'id', Auth::user()->id) }} -->
+    {{ Form::input('hidden', 'id', Auth::user()->id) }}
 
-   <div class="btn-update">
-    <p class="btn btn-update_color">更新</p>
+<!-- 更新ボタン -->
+<div class="btn-update">
+ <button type="submit" class="btn btn-update_color">更新</button>
   </div>
-  {!! Form::close() !!}
+</form>
 
-
-
-<!--バリデーションエラーメッセージ-->
-@if($errors->any())
-<div class="edit_error">
-  <ul>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
 
 
 @endsection

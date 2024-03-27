@@ -29,10 +29,10 @@
 
     <div class="content-flex">
       <div class="name-flex">
-        <div class="name1">name</div>
+        <div class="name1">ユーザー名</div>
         <div class="user-name">{{ $user->username }}</div>
       </div><div class="bio-flex">
-        <div class="bio-title">bio</div>
+        <div class="bio-title">自己紹介</div>
         <div class="bio-post">{{ $user->bio }}</div>
         <!-- <div>{{ $user-> bio}}</div> -->
         <!-- 入力できるようになると表示される -->
@@ -65,45 +65,23 @@
   <div class="gray-line"></div>
 
   @foreach($posts as $post)
-  <!-- 投稿を表示する -->
-  <div>
-    <ul>
-      <li class="post-block-profile">
-
-        <!-- アイコン -->
-        @if( $post->user->images == 'icon1.png' )
-        <figure>
-          <a href="/profile/{{ $post->user->id}}/view">
-            <img class="top-img" src="{{ asset('images/'.$post-> user ->images)}}" alt="アイコン">
-          </a>
-        </figure>
-        @else
-        <!-- icon1でなければ、 -->
-        <figure>
-          <a href="/profile/{{ $post->user->id}}/view">
-            <img class="top-img" src="{{ asset('storage/images/'.$post-> user ->images)}}" alt="アイコン">
-          </a>
-        </figure>
-        @endif
-
-        <div class="post-content">
-          <div>
-            <div class="post-name">
-              {{ $post-> user ->username }}
-              <!-- ユーザー名はpostsテーブルとusersテーブルをリレーションで紐づけてから持ってくる？ -->
+ <li>
+            <div class="post-container">
+                <a href="users/{{ $post->user->id }}/profile" class="icon-space">
+                <div class="post-content">
+                    <img class="FollowIcon" src="{{ asset('storage/user-images/'. $post->user->images) }}" alt="icon">
+                </a>
+         <div class="search-group">
+               <div class="post-content">
+                {{ $post->user->username }}</div>
+               <div class="post-content">{{ $post->post }}</div>
+         </div>
+               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i:s') }}</div>
             </div>
-            <div>
-              {{ date("Y-m-d H:i",strtotime($post->updated_at))}}
-            </div>
-          </div>
-          <div>
-            {!! nl2br($post-> post) !!}
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  @endforeach
+
+                <div class="thin-wrapper"><span class="line thin"></span></div>
+            </li>
+        @endforeach
 
 
 

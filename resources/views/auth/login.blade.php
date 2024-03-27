@@ -1,20 +1,35 @@
 @extends('layouts.logout')
+<!-- logout.blade.phpに繋がる。 -->
 
 @section('content')
+<!-- フォームファザード  適切なURLを入力してください -->
+<div class="login-form">
+   {!! Form::open(['url' => '/login']) !!}
+     <p class="hello">AtlasSNSへようこそ</p>
 
-{!! Form::open(['url' => '/login']) !!}
+       <div class="box">
 
-<p>AtlasSNSへようこそ</p>
+           <div class="set">
+             {{ Form::label('e-mail','メールアドレス',['class' => 'login']) }}
+              <br>
+              {{ Form::text('mail',null,['class' => 'input']) }}
+              <br>
+           </div>
 
-{{ Form::label('e-mail') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-{{ Form::label('password') }}
-{{ Form::password('password',['class' => 'input']) }}
+           <div class="set">
+             {{ Form::label('password','パスワード',['class' => 'login'])  }}
+              <br>
+             {{ Form::password('password',['class' => 'input']) }}
+              <br>
+           </div>
 
-{{ Form::submit('ログイン') }}
+           {{ Form::submit('LOGIN',['class' => 'login-btn']) }}
 
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
+           <p class="register"><a href="/register">新規ユーザーの方はこちら</a></p>
+      </div>
+         {!! Form::close() !!}
 
-{!! Form::close() !!}
+</div>
+
 
 @endsection

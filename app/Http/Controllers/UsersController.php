@@ -71,46 +71,64 @@ class UsersController extends Controller
         return back();
     }
 
-    //プロフィール編集更新機能
-    public function profileEdit(Request $request){
-        $request->validate([
+   //プロフィール編集更新機能
+public function profileEdit(Request $request){
+    $request->validate([
         'username' => 'required|string|min:2|max:12',
         'mail' => 'required|email|unique:users,mail|min:5|max:40',
         'password' => 'required|regex:/^[a-zA-Z0-9]+$/|confirmed|min:8|max:20',
         'bio' =>  'max:150',
         'images' => 'image|mimes:jpg,png,bmp,gif,svg',
+    ], [
+        'username.required' => 'ユーザー名を入力してください。',
+        'username.string' => 'ユーザー名は文字列で入力してください。',
+        'username.min' => 'ユーザー名は2文字以上で入力してください。',
+        'username.max' => 'ユーザー名は12文字以下で入力してください。',
+        'mail.required' => 'メールアドレスを入力してください。',
+        'mail.email' => '有効なメールアドレスを入力してください。',
+        'mail.unique' => 'このメールアドレスはすでに使用されています。',
+        'mail.min' => 'メールアドレスは5文字以上で入力してください。',
+        'mail.max' => 'メールアドレスは40文字以下で入力してください。',
+        'password.required' => 'パスワードを入力してください。',
+        'password.regex' => 'パスワードは英数字のみ使用できます。',
+        'password.confirmed' => 'パスワードと確認用パスワードが一致しません。',
+        'password.min' => 'パスワードは8文字以上で入力してください。',
+        'password.max' => 'パスワードは20文字以下で入力してください。',
+        'bio.max' => '自己紹介は150文字以下で入力してください。',
+        'images.image' => '画像ファイルを選択してください。',
+        'images.mimes' => '画像ファイルはjpg、png、bmp、gif、svg形式である必要があります。',
     ]);
-            $id=$request->input('id');
-            $username = $request->input('username');
-            $mail = $request->input('mail');
-            $password = $request->password; // パスワードの取得方法を修正
-            $bio=$request->input('bio');
-            $filename=$request->images->getClientOriginalName();
-            // dd($filename);
-            // $images = $request->images->getClientOriginalName();
-            // dd($images);
 
-        if ($request->hasFile('images')) {
+    // フォームデータから入力された情報を取得
+    $id = $request->input('id');
+    $username = $request->input('username');
+    $mail = $request->input('mail');
+    $password = $request->input('password'); // パスワードの取得方法を修正
+    $bio = $request->input('bio');
+    $filename = $request->images->getClientOriginalName();
+
+    // アップロードされた画像があるかどうかを確認して処理
+    if ($request->hasFile('images')) {
         // アップロードされた画像が存在する場合の処理
-            $filename = $request->images->getClientOriginalName();
-            $images = $request->images->storeAs('user-images', $filename, 'public');
-        } else {
-        // アップロードがなければ元の画像を使用するか、nullにするか、任意のデフォルト画像を設定するなどの処理を行う。
-            $images = null;
-            // $images = 'user-images/default-image.jpg';
+        $filename = $request->images->getClientOriginalName();
+        $images = $request->images->storeAs('user-images', $filename, 'public');
+    } else {
+        // アップロードがない場合の処理
+        $images = null;
     }
-            // パスワードをハッシュ化
-            $hashedPassword = Hash::make($password);
-            if ($images !== null) {
+
+    // パスワードをハッシュ化
+    $hashedPassword = Hash::make($password);
+
+    // imagesがnullでない場合は、imagesのファイル名を更新データに含める
+    if ($images !== null) {
         User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
     } else {
+        // imagesがnullの場合は、imagesは更新しない
         User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio]);
     }
 
-
-        // User::where('id', $id)->update
-        //     (['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
-
-        return redirect('/top');//更新を押したらTOPに戻る
-        }
+    // 更新が完了したらトップページにリダイレクトする
+    return redirect('/top');
+}
 }
