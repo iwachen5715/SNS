@@ -18,7 +18,9 @@ header {
 #container {
     flex: 0 0 80%;
     border-right: 1px solid #666;
-    ;
+    width: 80%;
+    min-height: 100vh;
+
 }
 
 #side-bar {
@@ -121,7 +123,7 @@ a:hover {
     display: none;
 }
 
-/*バー部分*/
+/* バー部分 */
 .menu label {
     cursor: pointer;
     display: block;
@@ -129,7 +131,7 @@ a:hover {
     color: #fff;
     line-height: 1;
     position: relative;
-    margin: 0 0 10px;
+    margin: 0;
     padding: 10px;
     background-color: #333;
 }
@@ -171,10 +173,10 @@ a:hover {
     margin-left: 40px;
     top: 18px;
     margin: auto 23px;
-    width: 55px;
+    width: 50px;
     /* 画像の幅 */
-    height: 55px;
-    /* 画像の高さ */
+    height: 50px;
+    /* 画像の高さ
     object-fit: cover;
     /* 画像を枠内にフィットさせる */
     border-radius: 50%;
@@ -183,17 +185,7 @@ a:hover {
     /* 画像が枠からはみ出さないようにする */
 }
 
-
-
-
-
-
-
-
-
-
-
-.accordion-title:after {
+*/ .accordion-title:after {
     content: "";
     position: absolute;
     right: 85px;
@@ -247,17 +239,22 @@ a:hover {
     width: 60%;
 }
 
-/* 削除ボタンのタグ */
 .Trash {
     width: 47px;
     height: auto;
     cursor: pointer;
     transition: .3s;
+    background-image: url('images/trash.png');
+    /* 通常の画像 */
+    /* 赤の背景色 */
 }
 
-/* ホバーしたら、反転 */
+/* ホバーしたら、背景色が反転 */
 .Trash:hover {
-    filter: invert(100%);
+
+    /* ホバー時のスタイル */
+    background-image: url('images/trash-h.png');
+    /* ホバー時の画像 */
 }
 
 .home {
@@ -468,6 +465,16 @@ input[type="file"] {
     margin-left: 40px;
     margin-bottom: 60px;
     margin-right: 20px;
+    /* 画像の幅 */
+    height: 50px;
+    width: 50px;
+    /* 画像の高さ
+        object-fit: cover;
+        /* 画像を枠内にフィットさせる */
+    border-radius: 50%;
+    /* 画像を円形にするための値 */
+    overflow: hidden;
+    /* 画像が枠からはみ出さないようにする */
 }
 
 /* IndexのユーザーアイコンのCSS */
@@ -476,13 +483,28 @@ input[type="file"] {
     height: 50px;
 
     display: flex;
+    /* 画像の幅 */
+    height: 55px;
+    /* 画像の高さ
+        object-fit: cover;
+        /* 画像を枠内にフィットさせる */
+    border-radius: 50%;
+    /* 画像を円形にするための値 */
+    overflow: hidden;
+    /* 画像が枠からはみ出さないようにする */
+    width: 50px;
+    height: 50px;
 }
 
 
 /* フォロワーリストのユーザーアイコンのCSS */
 .FollowerIcon {
     margin: 20px;
-    height: 40px;
+
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
 }
 
 /* 右サイドのログインユーザの名前 */
@@ -644,7 +666,7 @@ input[type="file"] {
 }
 
 .gray-line {
-    margin-top: 40px;
+    margin-top: 50px;
     display: block;
     width: 100%;
     height: 9px;
@@ -833,6 +855,10 @@ li {
 /* フォローリストのリストのアイコンのCSS */
 .icon-size {
     height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
 
 
 }
@@ -889,6 +915,8 @@ li {
     /* アイコンの高さを指定 */
     height: 50px;
     margin-left: 100px;
+    border-radius: 50%;
+    overflow: hidden;
 
 }
 
@@ -1023,6 +1051,10 @@ li {
 }
 
 .icon-spaces {
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
     height: 50px;
 }
 
