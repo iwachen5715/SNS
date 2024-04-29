@@ -62,15 +62,12 @@
                             </a>
                         </div>
                     </div> -->
-                   <div class="post-cell">
-    <form action="/post/{{ $list->id }}/delete" method="POST" onsubmit="return confirm('この投稿を削除します。よろしいでしょうか？')">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="Trash">
-            <img src="./images/trash.png" alt="削除" />
-        </button>
-    </form>
-</div>
+                    <div class="post-cell">
+                        <div class="Trash" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+                             <a href="/post/{{ $list->id }}/delete">
+                             </a>
+                        </div>
+                    </div>
                 @else
                     <td class="post-cell"></td>
                 @endif
