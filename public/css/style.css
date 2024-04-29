@@ -84,9 +84,6 @@ header {
 
 }
 
-a:hover {
-    color: darkblue;
-}
 
 .menu {
     position: absolute;
@@ -134,6 +131,15 @@ a:hover {
     margin: 0;
     padding: 10px;
     background-color: #333;
+}
+
+.menu label::after {
+    content: '\25BC';
+    /* 三角形の Unicode 文字コード */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
 .atras {
@@ -220,6 +226,7 @@ a:hover {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 100;
 }
 
 .modal__bg {
@@ -239,23 +246,6 @@ a:hover {
     width: 60%;
 }
 
-.Trash {
-    width: 47px;
-    height: auto;
-    cursor: pointer;
-    transition: .3s;
-    background-image: url('images/trash.png');
-    /* 通常の画像 */
-    /* 赤の背景色 */
-}
-
-/* ホバーしたら、背景色が反転 */
-.Trash:hover {
-
-    /* ホバー時のスタイル */
-    background-image: url('images/trash-h.png');
-    /* ホバー時の画像 */
-}
 
 .home {
     margin-top: 5%;
@@ -666,7 +656,7 @@ input[type="file"] {
 }
 
 .gray-line {
-    margin-top: 50px;
+    margin-top: 30px;
     display: block;
     width: 100%;
     height: 9px;
@@ -824,6 +814,7 @@ textarea {
     /* 線の太さを調整 */
     background-color: #DDDDDD;
     /* 線の色を指定 */
+    margin-top: 12px;
 }
 
 ul {
@@ -927,6 +918,7 @@ li {
     width: 100%;
     height: 5px;
 
+
 }
 
 
@@ -944,6 +936,8 @@ li {
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
+    white-space: nowrap;
+    /* 改行を禁止 */
 }
 
 .icon-space {
@@ -977,27 +971,42 @@ li {
 
 /* 削除ボタンのタグ */
 .Trash {
-    width: 30px;
-    height: auto;
+    width: 33px;
+    /* 画像の幅に合わせて調整 */
+    height: 36px;
+    /* 画像の高さに合わせて調整 */
     cursor: pointer;
-    transition: .3s;
-    margin-bottom: 22px;
-    margin-right: 60px;
+    margin-bottom: 28px;
+    margin-right: 66px;
     position: absolute;
     bottom: 0;
     right: 0;
+    background-image: url('../images/trash.png');
+    /* 画像のパスを正確に指定 */
+    background-size: contain;
+    /* 背景画像を要素内に収める */
+    background-repeat: no-repeat;
+    /* 背景画像の繰り返しを無効にする */
+    background-position: center;
+    /* 背景画像を要素の中央に配置 */
 }
 
 /* ホバーしたら、反転 */
 .Trash:hover {
-    background-image: url('images/trash-h.png');
+    margin-right: 48px;
+    margin-bottom: 0px;
+    width: 70px;
+    /* 画像の幅に合わせて調整 */
+    height: 90px;
+    background-image: url('../images/trash-h.png');
+    /* ホバー時の画像 */
 }
-
 
 /* つぶやきの編集ボタンのCSS */
 .Update {
     height: 35px;
-    margin-right: 80px;
+    margin-right: 87px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     position: absolute;

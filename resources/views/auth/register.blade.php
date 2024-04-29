@@ -18,8 +18,8 @@
    <div class="register_error">
       <ul>
          @foreach ($errors->all() as $error)
-         <li class="error-font">{{ $error }}</li>
-         @endforeach
+    <li class="error-font">{{ __('validation.' . $error) }}</li>
+@endforeach
       </ul>
    </div>
    @endif

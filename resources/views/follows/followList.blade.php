@@ -29,7 +29,7 @@
                 {{ $post->user->username }}</div>
                <div class="post-content">{{ $post->post }}</div>
          </div>
-               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i:s') }}</div>
+               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i') }}</div>
             </div>
 
                 <div class="thin-wrapper"><span class="line thin"></span></div>
