@@ -113,6 +113,7 @@ header p {
     font-size: 20px;
     /* フォントサイズを20pxに変更 */
     border: none;
+    height: 35px;
 }
 
 /* ATRASのログアウト時のロゴ */
@@ -132,6 +133,7 @@ header p {
     border-radius: 10px;
     font-size: 20px;
     border: none;
+    height: 35px;
 }
 
 /* .password2 {

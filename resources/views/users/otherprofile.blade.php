@@ -12,19 +12,19 @@
 
     @if( $user->images == 'icon1.png' )
 
-    <a href="/profile/{{ $user->id}}/view">
+    <!-- <a href="/profile/{{ $user->id}}/view"> -->
       <figure>
         <img class="top-img" src="{{ asset('images/'.$user->images)}}" alt="アイコン">
       </figure>
-    </a>
+    <!-- </a> -->
 
     @else
     <!-- icon1でなければ、 -->
-    <a href="/profile/{{ $user->id}}/view">
+    <!-- <a href="/profile/{{ $user->id}}/view"> -->
       <figure>
-        <img class="top-img" src="{{ asset('storage/images/'.$user->images)}}" alt="アイコン">
+        <img class="top-img" src="{{ asset('storage/user-images/'.$user->images)}}" alt="アイコン">
       </figure>
-    </a>
+    <!-- </a> -->
     @endif
 
     <div class="content-flex">
@@ -76,7 +76,7 @@
                 {{ $post->user->username }}</div>
                <div class="post-content">{{ $post->post }}</div>
          </div>
-               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i:s') }}</div>
+               <div class="post-content">{{ $post->created_at->format('Y-m-d H:i') }}</div>
             </div>
 
                 <div class="thin-wrapper"><span class="line thin"></span></div>

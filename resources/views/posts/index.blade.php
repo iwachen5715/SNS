@@ -55,16 +55,9 @@
                 @endif
                 <!-- 削除 -->
                 @if(Auth::id() == $list->user_id)
-                    <!-- <div class="post-cell">
-                        <div class="delete-btn">
-                            <a href="/post/{{ $list->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
-                                <img class="Trash" src="./images/trash.png" alt="削除" />
-                            </a>
-                        </div>
-                    </div> -->
                     <div class="post-cell">
-                        <div class="Trash" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
-                             <a href="/post/{{ $list->id }}/delete">
+                        <div>
+                             <a  class="Trash" href="/post/{{ $list->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
                              </a>
                         </div>
                     </div>
@@ -84,12 +77,14 @@
             <textarea id="postTextarea" name="Post" class="modal_post" maxlength="150"></textarea>
             <p id="errorText" style="color: red; display: none;">150文字以内で入力してください。</p>
             <input type="hidden" name="id" class="modal_id" value="">
-            <input type="submit" value="更新" id="submitBtn" style="display: none;">
+            <img class="edit-mark" src="{{ asset('images/edit.png') }}" alt="更新" onclick="document.getElementById('updateForm').submit()">
+
             @csrf <!-- Laravel の CSRF トークンを追加 -->
         </form>
-        <a class="js-modal-close" href="">閉じる</a>
+        <a class="js-modal-close" href=""></a>
     </div>
 </div>
+
     <!-- <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">

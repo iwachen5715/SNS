@@ -191,7 +191,7 @@ header {
     /* 画像が枠からはみ出さないようにする */
 }
 
-*/ .accordion-title:after {
+.accordion-title:after {
     content: "";
     position: absolute;
     right: 85px;
@@ -312,7 +312,7 @@ header {
     border: 1px solid #999;
     background-color: #f2f2f2;
     text-align: center;
-    margin-left: 95px;
+    margin-left: 52px;
 }
 
 .file-label {
@@ -352,7 +352,8 @@ input[type="file"] {
     height: 45px;
     top: 120px;
     margin-left: 170px;
-    margin-top: 30px;
+    margin-top: 40px;
+
 
 
 }
@@ -725,12 +726,19 @@ input[type="file"] {
 /* INDEXの投稿内容入力してくださいの文字部分 */
 textarea {
     resize: none;
-    height: 100px;
-    opacity: 0.2;
+    height: 120px;
     margin-top: 10px;
     font-family: sans-serif;
     width: 80%;
 }
+
+.edit-mark {
+    background: #fff;
+    width: 47px;
+    height: auto;
+    cursor: pointer;
+}
+
 
 
 .user-list {
@@ -861,21 +869,21 @@ li {
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-    margin-left: 240px;
+    margin-left: 50px;
     margin-right: 170px;
 }
 
 
 .form-group p {
     display: inline-block;
-    width: 25%;
+    width: 50%;
     font-size: 20px;
 }
 
 /* プロフィール更新の編集の文章を入力する枠 */
 .items-input {
     display: inline-block;
-    width: 50%;
+    width: 67%;
     /* 入力欄の余白を設定 */
     border: 1px solid #999;
     /* 入力欄の境界線を設定 */
@@ -887,7 +895,7 @@ li {
     padding: 0.35em;
     border: 1px solid #999;
     font-size: 120%;
-    margin-left: 60px;
+
 }
 
 
@@ -964,10 +972,7 @@ li {
 
 
 
-.update-btn {
 
-    /* 余白を設定 */
-}
 
 /* 削除ボタンのタグ */
 .Trash {
@@ -1131,7 +1136,7 @@ li {
 }
 
 .keyword {
-    font-size: 30px;
+    font-size: 25px;
     margin-left: -70px;
 }
 
@@ -1177,7 +1182,10 @@ li {
 
 /* 他ユーザーのページ */
 .top-img {
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 
@@ -1192,4 +1200,10 @@ li {
 
 .flex-container {
     display: flex;
+}
+
+
+.flex-items {
+    display: flex;
+    margin-top: 30px;
 }

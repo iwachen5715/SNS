@@ -14,13 +14,14 @@
 @endif
 
 <!-- プロフィール編集画面 -->
-
+<!-- divタグ -->
+<div class="flex-items">
 <div class="flex-container">
     <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
     {!! Form::open(['route' => 'profile.update', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 </div>
 
-
+<div style="width:100%;margin-top :40px;">
 <div class="form-group">
    <p>ユーザー名</p>
    <input type="text" class="items-input" name="username" value="{{ auth()->user()->username}}">
@@ -54,6 +55,8 @@
           </label>
         </div>
       </div>
+  </div>
+  </div>
 
 
     {{ Form::input('hidden', 'id', Auth::user()->id) }}

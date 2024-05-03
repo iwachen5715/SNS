@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class UsersController extends Controller
 {
     //  public function profile(Int $user_Id)
@@ -75,7 +76,7 @@ class UsersController extends Controller
 public function profileEdit(Request $request){
     $request->validate([
         'username' => 'required|string|min:2|max:12',
-        'mail' => 'required|email|unique:users,mail|min:5|max:40',
+        'mail' => 'required|email|min:5|max:40|unique:users,mail->ignore(Auth::id())',
         'password' => 'required|regex:/^[a-zA-Z0-9]+$/|confirmed|min:8|max:20',
         'bio' =>  'max:150',
         'images' => 'image|mimes:jpg,png,bmp,gif,svg',
@@ -105,23 +106,22 @@ public function profileEdit(Request $request){
     $mail = $request->input('mail');
     $password = $request->input('password'); // パスワードの取得方法を修正
     $bio = $request->input('bio');
-    $filename = $request->images->getClientOriginalName();
+
 
     // アップロードされた画像があるかどうかを確認して処理
-    if ($request->hasFile('images')) {
+    if (!empty($request->hasFile('images'))) {
         // アップロードされた画像が存在する場合の処理
-        $filename = $request->images->getClientOriginalName();
-        $images = $request->images->storeAs('user-images', $filename, 'public');
-    } else {
-        // アップロードがない場合の処理
-        $images = null;
+        $filename = $request->hasFile('images')->getClientOriginalName();
+        $request->hasFile('images')->storeAs('user-images', $filename, 'public');
+
+
     }
 
     // パスワードをハッシュ化
     $hashedPassword = Hash::make($password);
 
     // imagesがnullでない場合は、imagesのファイル名を更新データに含める
-    if ($images !== null) {
+    if ($filename!== null) {
         User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
     } else {
         // imagesがnullの場合は、imagesは更新しない
