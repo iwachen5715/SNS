@@ -25,9 +25,9 @@
             </div>
         </div>
         <ul class="menu">
-            <li><a class="home" href="/top">HOME</a></li>
-            <li><a class="icon" href="/profile">プロフィール編集</a></li>
-            <li><a class="center" href="/logout">ログアウト</a></li>
+            <li class="accordion-code"><a class="home" href="/top">HOME</a></li>
+            <li class="accordion-code"><a class="icon" href="/profile">プロフィール編集</a></li>
+            <li class="accordion-code"><a class="center" href="/logout">ログアウト</a></li>
         </ul>
     </div>
 </header>

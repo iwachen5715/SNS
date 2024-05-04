@@ -109,24 +109,26 @@ public function profileEdit(Request $request){
 
 
     // アップロードされた画像があるかどうかを確認して処理
-    if (!empty($request->hasFile('images'))) {
-        // アップロードされた画像が存在する場合の処理
-        $filename = $request->hasFile('images')->getClientOriginalName();
-        $request->hasFile('images')->storeAs('user-images', $filename, 'public');
+     //if ($filename !== null)の判定のために必要
+        $filename = null;
 
-
-    }
+        // アップロードされた画像があるかどうかを確認して処理
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('user-images', $filename, 'public');
+        }
 
     // パスワードをハッシュ化
     $hashedPassword = Hash::make($password);
 
     // imagesがnullでない場合は、imagesのファイル名を更新データに含める
-    if ($filename!== null) {
-        User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
-    } else {
-        // imagesがnullの場合は、imagesは更新しない
-        User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio]);
-    }
+  if ($filename !== null) {
+            User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio, 'images' => $filename]);
+        } else {
+            // imagesがnullの場合は、imagesは更新しない
+            User::where('id', $id)->update(['username' => $username, 'mail' => $mail, 'password' => $hashedPassword, 'bio' => $bio]);
+        }
 
     // 更新が完了したらトップページにリダイレクトする
     return redirect('/top');

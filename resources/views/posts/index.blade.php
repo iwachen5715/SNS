@@ -11,7 +11,6 @@
             </ul>
         </div>
     @endif
-
     {!! Form::open(['url' => 'post/create']) !!}
         <div class="comment-box">
             <img class="PostIcon" src="{{ asset('storage/user-images/'.$user->images) }}" alt="{{ $user->username }}のアイコン">
@@ -19,16 +18,14 @@
             <button type="submit" class="send-btn"><img class="Upload" src="images/post.png"></button>
         </div>
     {!! Form::close() !!}
-
     <!-- グレーの太線 -->
     <div class="separator-line"></div>
-
     <table>
         <thead>
             <tr></tr>
         </thead>
         <tbody>
-            @foreach ($lists as $list)
+            @foreach ($lists->reverse() as $list)
                 <div class="post-row">
                     <!-- ユーザーのアイコンを表示 -->
                     <div class="post-cell">
@@ -69,33 +66,18 @@
         </tbody>
     </table>
 
-    <!-- モーダルの中身 -->
-    <div class="modal js-modal">
+   <div class="modal js-modal">
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content">
-        <form id="updateForm" action="{{ route('update.post') }}" method="post"> <!-- 適切なルート名を指定 -->
-            <textarea id="postTextarea" name="Post" class="modal_post" maxlength="150"></textarea>
-            <p id="errorText" style="color: red; display: none;">150文字以内で入力してください。</p>
+        <form id="updateForm" action="{{ route('update.post') }}" method="post">
+            <textarea id="postTextarea" name="Post" class="modal_post"></textarea>
             <input type="hidden" name="id" class="modal_id" value="">
-            <img class="edit-mark" src="{{ asset('images/edit.png') }}" alt="更新" onclick="document.getElementById('updateForm').submit()">
-
             @csrf <!-- Laravel の CSRF トークンを追加 -->
         </form>
+        <!-- 更新ボタン -->
+        <img class="edit-mark" src="{{ asset('images/edit.png') }}" alt="更新" onclick="document.getElementById('updateForm').submit()">
         <a class="js-modal-close" href=""></a>
     </div>
 </div>
-
-    <!-- <div class="modal js-modal">
-        <div class="modal__bg js-modal-close"></div>
-        <div class="modal__content">
-            <form action="{{ route('update.post') }}" method="post"> 適切なルート名を指定
-                <textarea name="Post" class="modal_post"></textarea>
-                <input type="hidden" name="id" class="modal_id" value="">
-                <input type="submit" value="更新">
-                @csrf Laravel の CSRF トークンを追加
-            </form>
-            <a class="js-modal-close" href="">閉じる</a>
-        </div>
-    </div> -->
 
 @endsection

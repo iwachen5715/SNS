@@ -4,12 +4,6 @@
 
 <div>
   <div class="icon-flex">
-    <!-- $usersは、、アイコンユーザーのユーザー情報(UsersController@profileで取ってきている) -->
-    <!--  アイコン、ユーザー名、自己紹介文を画面に表示する-->
-
-    <!-- アイコン表示 とりあえず、icon1.pngを表示-->
-
-
     @if( $user->images == 'icon1.png' )
 
     <!-- <a href="/profile/{{ $user->id}}/view"> -->
@@ -64,13 +58,12 @@
 
   <div class="gray-line"></div>
 
-  @foreach($posts as $post)
- <li>
-            <div class="post-container">
-                <a href="users/{{ $post->user->id }}/profile" class="icon-space">
+  @foreach($posts->reverse() as $post)
+            <li >
+
                 <div class="post-content">
-                    <img class="FollowIcon" src="{{ asset('storage/user-images/'. $post->user->images) }}" alt="icon">
-                </a>
+                    <img class="FollowIcon icon-space" src="{{ asset('storage/user-images/'. $post->user->images) }}" alt="icon">
+
          <div class="search-group">
                <div class="post-content">
                 {{ $post->user->username }}</div>

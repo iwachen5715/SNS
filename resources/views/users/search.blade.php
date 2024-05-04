@@ -15,7 +15,6 @@
       <!-- 検索ボタン -->
     </form>
   </div>
-
   <!-- 検索ワードの表示 -->
   <!-- 検索ワードに入力していた場合、検索ワードを表示する -->
   <div class="keyword-box">
@@ -29,6 +28,7 @@
 
 
 @foreach ($users as $user)
+    @if($user->id !== auth()->id()) <!-- ここでログインユーザーのIDと比較 -->
        <div class="user-row">
         <img src="{{ asset('storage/user-images/'. $user->images) }}" alt="icon" class="icon-spaces">
         <span>{{ $user->username }}</span>
@@ -40,7 +40,8 @@
             @endif
         </span>
     </div>
-    @endforeach
+    @endif
+@endforeach
 
 
 @endsection

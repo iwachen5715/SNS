@@ -13,11 +13,10 @@
             @endforeach
         </div>
     </div>
-
     <div class="line-wrapper"><span class="bold line"></span></div>
 
     <ul>
-       @foreach($posts as $post)<!--繰り返し構文：$postsには自分のフォローしているユーザーの投稿情報が全て入っている-->
+       @foreach($posts->reverse() as $post)<!--繰り返し構文：$postsには自分のフォローしているユーザーの投稿情報が全て入っている-->
 
              <li>
             <div class="post-container">

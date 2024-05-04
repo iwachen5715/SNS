@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Post;
 use DB;
 use App\User;
@@ -49,18 +50,35 @@ class PostsController extends Controller
 
 
     //編集用メソッドの実装
-    public function updateForm(Request $request)
-    {
-    // updateの処理
-    // dd($request);
+
+public function updateForm(Request $request)
+{
+    // バリデーションルールを定義
+    $rules = [
+        'id' => 'required',
+        'Post' => 'required|string|max:150', // Postフィールドは必須であり、文字列であり、最大150文字までとする
+    ];
+
+    // カスタムメッセージを定義
+    $customMessages = [
+        'max' => '投稿内容は150文字以内で入力してください。',
+    ];
+
+    // バリデーションを実行
+    $validator = Validator::make($request->all(), $rules, $customMessages);
+
+    // バリデーションが失敗した場合
+    if ($validator->fails()) {
+        return redirect('/top') // 適切なリダイレクト先に変更してください
+            ->withErrors($validator) // エラーメッセージをセッションに保存
+            ->withInput(); // 入力値をセッションに保存してフォームに再表示させる
+    }
+
+    // バリデーションが成功した場合は、updateの処理を行う
     $id = $request->input('id');
-    //↑↑$requestはHTTPリクエストオブジェクトを表し、input()メソッドを使用して、リクエストパラメーターから'id'という名前の値を取得し、変数$idに代入しています。
-
     $up_post = $request->input('Post');
-
-    Post::where('id',$id)->update(['post' => $up_post]);
+    Post::where('id', $id)->update(['post' => $up_post]);
 
     return redirect('/top');
-
-    }
+}
 }

@@ -255,6 +255,18 @@ header {
 
 }
 
+.menu a {
+    color: gray;
+    /* ホバー前の文字色をグレーに設定 */
+    text-decoration: none;
+    /* リンクの下線を削除 */
+}
+
+.menu a:hover {
+    color: white;
+    /* ホバー時の文字色を白に設定 */
+}
+
 
 
 .icon {
@@ -267,7 +279,7 @@ header {
 }
 
 .center {
-    margin-bottom: 5px;
+    margin-top: 15px;
     display: inline-block;
     padding: 20px 50px;
 }
@@ -353,6 +365,9 @@ input[type="file"] {
     top: 120px;
     margin-left: 170px;
     margin-top: 40px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 
 
 
@@ -676,6 +691,7 @@ input[type="file"] {
     margin-right: 600px;
     border: none;
     font-size: 20px;
+    margin-left: 40px;
 
 
 }
@@ -737,6 +753,8 @@ textarea {
     width: 47px;
     height: auto;
     cursor: pointer;
+    margin-left: 300px;
+    margin-top: 20px;
 }
 
 
@@ -831,9 +849,14 @@ ul {
     padding: 0;
 }
 
+.menu li a {
+    height: 190%;
+    /* メニュー項目内のリンクの共通スタイル */
+}
+
 li {
-    margin-bottom: 20px;
-    /* リストアイテム間の余白を調整
+    height: 190%;
+
 }
 
 
@@ -915,7 +938,7 @@ li {
     height: 50px;
     margin-left: 100px;
     border-radius: 50%;
-    overflow: hidden;
+
 
 }
 
@@ -924,7 +947,7 @@ li {
     display: inline-block;
     justify-content: space-between;
     width: 100%;
-    height: 5px;
+
 
 
 }
@@ -1197,6 +1220,15 @@ li {
 
 }
 
+.error-message {
+    margin-top: 20px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
 
 .flex-container {
     display: flex;
@@ -1206,4 +1238,17 @@ li {
 .flex-items {
     display: flex;
     margin-top: 30px;
+}
+
+li {
+    list-style: none;
+}
+
+.accordion-code {
+    border-bottom: solid 0.2px;
+}
+
+.accordion-code:hover {
+    background-color: #000080;
+    /* ホバー時の背景色 */
 }

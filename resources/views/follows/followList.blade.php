@@ -17,7 +17,7 @@
     <div class="line-wrapper"><span class="bold line"></span></div>
 
     <ul>
-        @foreach($posts as $post)
+        @foreach($posts->reverse() as $post)
             <li>
             <div class="post-container">
                 <a href="users/{{ $post->user->id }}/profile" class="icon-space">

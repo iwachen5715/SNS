@@ -7,7 +7,6 @@
 
 
 @section('content')
-<!-- フォームファザード  適切なURLを入力してください -->
 <div class="login-form">
    {!! Form::open(['url' => '/register']) !!}
 
@@ -18,7 +17,7 @@
    <div class="register_error">
       <ul>
          @foreach ($errors->all() as $error)
-    <li class="error-font">{{ __('validation.' . $error) }}</li>
+    <li class="error-font">{{ $error }}</li>
 @endforeach
       </ul>
    </div>
