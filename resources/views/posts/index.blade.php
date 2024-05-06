@@ -33,7 +33,7 @@
                     </div>
                     <div class="post-group">
                         <div class="post-cell">{{ $list->user->username }}</div>
-                        <div class="post-cell">{{ $list->post }}</div>
+                        <div class="post-cell">{!! nl2br(e($list->post)) !!}</div>
                     </div>
                     <!-- created_atを別のグループにする -->
                     <div class="post-cell">{{ $list->created_at->format('Y-m-d H:i') }}</div>
