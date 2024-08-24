@@ -27,7 +27,7 @@ class User extends Authenticatable
     // フォロワー機能
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');//User::classはuserモデルに関連づけている。
     }
     //followersメソッドは、belongsToManyメソッドを使用して、Userモデルとfollowsテーブルの間に多対多のリレーションを定義しています。第一引数には関連するモデルクラスであるUser::classを指定し、第二引数には中間テーブルであるfollowsを指定します。
 

@@ -54,10 +54,12 @@ class UsersController extends Controller
     public function follow(User $user,$id)
     {
         if (Auth::check()) {
+            //ユーザーがログインしているかどうかを確認します。
         // $request->user()->following()->attach($user->id);
-        }
-        $following=auth()->user();//$followingは変数あだ名をつけている
+
+        $following=auth()->user();//現在ログインしているユーザーを取得する関数
         $following->follow($id);//idを使ってフォローしといてという意味
+         }
 
         return redirect('/search');//毎回検索画面に戻るようにリダイレクトしている
     }
